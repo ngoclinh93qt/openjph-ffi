@@ -1,0 +1,10 @@
+{
+      "files.associations": {
+            "exception": "cpp",
+            "cstdio": "cpp",
+            "cstdint": "cpp",
+            "cstring": "cpp",
+            "__config": "cpp",
+            "cstdlib": "cpp"
+      }
+}

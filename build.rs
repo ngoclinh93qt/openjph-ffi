@@ -17,6 +17,7 @@ fn main() {
     cc.include(commondir);
     cc.cpp(true);
     cc.cpp_set_stdlib("c++");
+    cc.flag("-std=c++17");
 
     let files = [
           "codestream/ojph_codestream.cpp",

@@ -10,16 +10,14 @@ use image::*;
 fn poke() {
       unsafe {
             let img = image::open("./tests/lab.jpg").unwrap();
-
+            let width = img.width();
             let dimentsion = img.dimensions();
 
-            let img16 = img.into_rgb8();
-            let data = img16.into_raw() as Vec<u8>;
+            let img8 = img.into_rgb8();
+            let data = img8.into_raw() as Vec<u8>;
 
             // Setup image size parameters
-            let mut codestream = ojph_codestream {
-                  state: std::mem::uninitialized(),
-            };
+            let mut codestream = ojph_codestream::new();
             let mut num_comps = 3;
             let mut siz = codestream.access_siz();
             let point = ojph_point {
@@ -78,10 +76,19 @@ fn poke() {
             );
             siz = codestream.access_siz();
             let height = siz.get_image_extent().y - siz.get_image_offset().y;
-
-            for i in 0..height {
+            let bytesPerPixel = 3;
+            for y in 0..height {
                   for j in 0..siz.get_num_components() {
-
+                        
+                        let pIn = (*cur_line).__bindgen_anon_1.i32_ ;
+                        let index = y * (width as i32) * 3;
+                       // uint16_t* pIn = (uint16_t*)(decoded_.data() + (y * frameInfo_.width * bytesPerPixel));
+                        for  x  in 0..width {
+                           let img_index = index as u32 + x ;
+                           let value = data[img_index as usize];
+                           *(pIn.offset(x as isize)) = value as i32;
+                          //*dp++ = *pIn++;
+                        }
                   }
                   cur_line = codestream.exchange(cur_line, next_component_ptr);
             }

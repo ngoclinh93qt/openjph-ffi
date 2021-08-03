@@ -16,6 +16,8 @@
 namespace ojph {
 
     const ui8* htj2kcompress::encodedao(const uint8_t* data, size_t width, size_t height, bool isSigned) {
+    printf ("width (%d) \n", width );
+    printf ("height (%d) \n", height );
 
     ojph::codestream codestream;
     ojph::param_siz siz = codestream.access_siz();
@@ -23,7 +25,7 @@ namespace ojph {
     int num_comps = 3;
     siz.set_num_components(num_comps);
     for (int c = 0; c < num_comps; ++c)
-        siz.set_component(c, ojph::point(width, height), 8, isSigned);
+        siz.set_component(c, ojph::point(1, 1), 8, isSigned);
     siz.set_image_offset(ojph::point(0, 0));
     siz.set_tile_size(ojph::size(0,0));
     siz.set_tile_offset(ojph::point(0, 0));
@@ -39,6 +41,7 @@ namespace ojph {
     cod.set_reversible(true);
     //codestream.access_qcd().set_irrev_quant(0);
     mem_outfile output;
+    output.open();
     codestream.set_planar(false);
     codestream.write_headers(&output);
 
@@ -46,7 +49,8 @@ namespace ojph {
     const size_t bytesPerPixel = 3;
     int next_comp;
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
-    siz = codestream.access_siz();
+        printf ("height (%d) \n", siz.get_num_components() );
+
 
      for (size_t y = 0; y < height; y++)
     {
@@ -58,15 +62,16 @@ namespace ojph {
             for(size_t x=0; x < width; x++) {
               *dp++ = *pIn++;
             }
+            cur_line = codestream.exchange(cur_line, next_comp);
+
       }
-      cur_line = codestream.exchange(cur_line, next_comp);
 
     }
 
      // cleanup
     codestream.flush();
     codestream.close();
-    ui8 foo [5] = { 16, 2, 77, 40, 8 }; 
+    printf ("size (%d) \n", output.tell() );
 
     return output.get_data();  
     }

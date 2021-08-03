@@ -70,7 +70,8 @@ namespace ojph {
     codestream();
     OJPH_EXPORT
     ~codestream();
-
+    OJPH_EXPORT
+    static codestream dao();
     OJPH_EXPORT
     void set_planar(bool planar);
     OJPH_EXPORT

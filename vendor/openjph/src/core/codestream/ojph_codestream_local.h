@@ -74,6 +74,7 @@ namespace ojph {
       codestream();
       ~codestream();
 
+      static codestream dao();
       void pre_alloc();
       void finalize_alloc();
 

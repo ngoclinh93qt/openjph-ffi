@@ -1,4 +1,6 @@
-fn main() {}
+fn main() {
+      poke();
+}
 
 #[allow(bad_style)]
 mod ffi;
@@ -6,7 +8,6 @@ mod ffi;
 pub use crate::ffi::*;
 use image::*;
 
-#[test]
 fn poke() {
       unsafe {
             let img = image::open("./tests/lab.jpg").unwrap();
@@ -17,7 +18,7 @@ fn poke() {
             let data = img8.into_raw() as Vec<u8>;
 
             // Setup image size parameters
-            let mut codestream = ojph_codestream::new();
+            let mut codestream = ojph_codestream::dao();
             let mut num_comps = 3;
             let mut siz = codestream.access_siz();
             let point = ojph_point {
@@ -50,7 +51,7 @@ fn poke() {
                   precincts[i].w = 0;
                   precincts[i].h = 0;
             }
-
+            println!("dao");
             cod.set_precinct_size(precincts.len() as i32, &mut ojph_size { w: 0, h: 0 });
             // cod.set_progression_order();
             let lossless_ = true;

@@ -72,6 +72,10 @@ namespace ojph {
     state = new local::codestream;
   }
 
+  static codestream dao() {
+    codestream  dao;
+    return dao;
+  }
   ////////////////////////////////////////////////////////////////////////////
   param_siz codestream::access_siz()
   {

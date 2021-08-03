@@ -18,19 +18,28 @@ fn main() {
     cc.cpp(true);
     cc.cpp_set_stdlib("c++");
     cc.flag("-std=c++17");
+    cc.flag("-mavx");
+    cc.flag("-mavx2");
 
     let files = [
           "codestream/ojph_codestream.cpp",
           "codestream/ojph_params.cpp",
+          "codestream/ojph_htj2kcompress.cpp",
           "coding/ojph_block_decoder.cpp",
           "coding/ojph_block_encoder.cpp",
           "others/ojph_arch.cpp",
           "others/ojph_file.cpp",
           "others/ojph_mem.cpp",
           "others/ojph_message.cpp",
+         "transform/ojph_colour_avx.cpp",
+          "transform/ojph_colour_avx2.cpp",
+
           "transform/ojph_colour.cpp",
           "transform/ojph_colour_sse.cpp",
           "transform/ojph_colour_sse2.cpp",
+          "transform/ojph_transform_avx.cpp",
+          "transform/ojph_transform_avx2.cpp",
+
           "transform/ojph_transform_sse.cpp",
           "transform/ojph_transform_sse2.cpp",
           "transform/ojph_transform.cpp",
@@ -39,6 +48,8 @@ fn main() {
     for file in files.iter() {
         cc.file(coredir.join(file));
     }
+    cc.warnings(false);
+    cc.warnings_into_errors(false);
     cc.compile("openjph");
 
 }

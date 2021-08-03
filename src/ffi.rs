@@ -955,6 +955,16 @@ pub struct ojph_local_param_cap {
 pub struct ojph_local_codestream {
     _unused: [u8; 0],
 }
+extern "C" {
+    ///
+    #[link_name = "\u{1}__ZN4ojph5local31init_colour_transform_functionsEv"]
+    pub fn ojph_local_init_colour_transform_functions();
+}
+extern "C" {
+    ///
+    #[link_name = "\u{1}__ZN4ojph5local32init_wavelet_transform_functionsEv"]
+    pub fn ojph_local_init_wavelet_transform_functions();
+}
 ///
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1615,5 +1625,319 @@ impl ojph_codestream {
     #[inline]
     pub unsafe fn destruct(&mut self) {
         ojph_codestream_codestream_destructor(self)
+    }
+}
+///
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ojph_argument {
+    pub arg: *mut c_char,
+    pub index: c_int,
+}
+#[test]
+fn bindgen_test_layout_ojph_argument() {
+    assert_eq!(
+        ::std::mem::size_of::<ojph_argument>(),
+        16usize,
+        concat!("Size of: ", stringify!(ojph_argument))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ojph_argument>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ojph_argument))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ojph_argument>())).arg as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ojph_argument),
+            "::",
+            stringify!(arg)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ojph_argument>())).index as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ojph_argument),
+            "::",
+            stringify!(index)
+        )
+    );
+}
+///
+#[repr(C)]
+#[derive(Debug)]
+pub struct ojph_cli_interpreter {
+    pub argv: *mut *mut c_char,
+    pub argc: c_int,
+    pub avail_store: [ojph_ui8; 16usize],
+    pub avail: *mut ojph_ui8,
+}
+#[repr(C)]
+pub struct ojph_cli_interpreter_arg_inter_base__bindgen_vtable(c_void);
+///
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ojph_cli_interpreter_arg_inter_base {
+    pub vtable_: *const ojph_cli_interpreter_arg_inter_base__bindgen_vtable,
+}
+#[test]
+fn bindgen_test_layout_ojph_cli_interpreter_arg_inter_base() {
+    assert_eq!(
+        ::std::mem::size_of::<ojph_cli_interpreter_arg_inter_base>(),
+        8usize,
+        concat!("Size of: ", stringify!(ojph_cli_interpreter_arg_inter_base))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ojph_cli_interpreter_arg_inter_base>(),
+        8usize,
+        concat!(
+            "Alignment of ",
+            stringify!(ojph_cli_interpreter_arg_inter_base)
+        )
+    );
+}
+#[test]
+fn bindgen_test_layout_ojph_cli_interpreter() {
+    assert_eq!(
+        ::std::mem::size_of::<ojph_cli_interpreter>(),
+        40usize,
+        concat!("Size of: ", stringify!(ojph_cli_interpreter))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ojph_cli_interpreter>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ojph_cli_interpreter))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ojph_cli_interpreter>())).argv as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ojph_cli_interpreter),
+            "::",
+            stringify!(argv)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ojph_cli_interpreter>())).argc as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ojph_cli_interpreter),
+            "::",
+            stringify!(argc)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<ojph_cli_interpreter>())).avail_store as *const _ as usize
+        },
+        12usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ojph_cli_interpreter),
+            "::",
+            stringify!(avail_store)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<ojph_cli_interpreter>())).avail as *const _ as usize },
+        32usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(ojph_cli_interpreter),
+            "::",
+            stringify!(avail)
+        )
+    );
+}
+#[repr(i32)]
+///
+#[derive(Debug, Copy, Clone, Hash, PartialEq, Eq)]
+pub enum ojph_OJPH_MSG_LEVEL {
+    NO_MSG = 0,
+    INFO = 1,
+    WARN = 2,
+    ERROR = 3,
+}
+#[repr(C)]
+pub struct ojph_message_base__bindgen_vtable(c_void);
+///
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ojph_message_base {
+    pub vtable_: *const ojph_message_base__bindgen_vtable,
+}
+#[test]
+fn bindgen_test_layout_ojph_message_base() {
+    assert_eq!(
+        ::std::mem::size_of::<ojph_message_base>(),
+        8usize,
+        concat!("Size of: ", stringify!(ojph_message_base))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ojph_message_base>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ojph_message_base))
+    );
+}
+///
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ojph_message_info {
+    pub _base: ojph_message_base,
+}
+#[test]
+fn bindgen_test_layout_ojph_message_info() {
+    assert_eq!(
+        ::std::mem::size_of::<ojph_message_info>(),
+        8usize,
+        concat!("Size of: ", stringify!(ojph_message_info))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ojph_message_info>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ojph_message_info))
+    );
+}
+extern "C" {
+    ///
+    #[link_name = "\u{1}__ZN4ojph15set_info_streamEP7__sFILE"]
+    pub fn ojph_set_info_stream(s: *mut FILE);
+}
+extern "C" {
+    #[link_name = "\u{1}__ZN4ojph14configure_infoEPNS_12message_infoE"]
+    pub fn ojph_configure_info(info: *mut ojph_message_info);
+}
+extern "C" {
+    #[link_name = "\u{1}__ZN4ojph8get_infoEv"]
+    pub fn ojph_get_info() -> *mut ojph_message_info;
+}
+///
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ojph_message_warning {
+    pub _base: ojph_message_base,
+}
+#[test]
+fn bindgen_test_layout_ojph_message_warning() {
+    assert_eq!(
+        ::std::mem::size_of::<ojph_message_warning>(),
+        8usize,
+        concat!("Size of: ", stringify!(ojph_message_warning))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ojph_message_warning>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ojph_message_warning))
+    );
+}
+extern "C" {
+    ///
+    #[link_name = "\u{1}__ZN4ojph18set_warning_streamEP7__sFILE"]
+    pub fn ojph_set_warning_stream(s: *mut FILE);
+}
+extern "C" {
+    #[link_name = "\u{1}__ZN4ojph17configure_warningEPNS_15message_warningE"]
+    pub fn ojph_configure_warning(warn: *mut ojph_message_warning);
+}
+extern "C" {
+    #[link_name = "\u{1}__ZN4ojph11get_warningEv"]
+    pub fn ojph_get_warning() -> *mut ojph_message_warning;
+}
+///
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct ojph_message_error {
+    pub _base: ojph_message_base,
+}
+#[test]
+fn bindgen_test_layout_ojph_message_error() {
+    assert_eq!(
+        ::std::mem::size_of::<ojph_message_error>(),
+        8usize,
+        concat!("Size of: ", stringify!(ojph_message_error))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ojph_message_error>(),
+        8usize,
+        concat!("Alignment of ", stringify!(ojph_message_error))
+    );
+}
+extern "C" {
+    ///
+    #[link_name = "\u{1}__ZN4ojph16set_error_streamEP7__sFILE"]
+    pub fn ojph_set_error_stream(s: *mut FILE);
+}
+extern "C" {
+    #[link_name = "\u{1}__ZN4ojph15configure_errorEPNS_13message_errorE"]
+    pub fn ojph_configure_error(error: *mut ojph_message_error);
+}
+extern "C" {
+    #[link_name = "\u{1}__ZN4ojph9get_errorEv"]
+    pub fn ojph_get_error() -> *mut ojph_message_error;
+}
+#[repr(C)]
+#[derive(Debug)]
+pub struct ojph_htj2kcompress {
+    pub _address: u8,
+}
+#[test]
+fn bindgen_test_layout_ojph_htj2kcompress() {
+    assert_eq!(
+        ::std::mem::size_of::<ojph_htj2kcompress>(),
+        1usize,
+        concat!("Size of: ", stringify!(ojph_htj2kcompress))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ojph_htj2kcompress>(),
+        1usize,
+        concat!("Alignment of ", stringify!(ojph_htj2kcompress))
+    );
+}
+extern "C" {
+    #[link_name = "\u{1}__ZN4ojph13htj2kcompress6encodeEPKhmmb"]
+    pub fn ojph_htj2kcompress_encode(
+        this: *mut ojph_htj2kcompress,
+        data: *const u8,
+        width: size_t,
+        height: size_t,
+        isSigned: bool,
+    ) -> ojph_mem_outfile;
+}
+extern "C" {
+    #[link_name = "\u{1}__ZN4ojph13htj2kcompress9encodedaoEPKhmmb"]
+    pub fn ojph_htj2kcompress_encodedao(
+        this: *mut ojph_htj2kcompress,
+        data: *const u8,
+        width: size_t,
+        height: size_t,
+        isSigned: bool,
+    ) -> *const ojph_ui8;
+}
+impl ojph_htj2kcompress {
+    #[inline]
+    pub unsafe fn encode(
+        &mut self,
+        data: *const u8,
+        width: size_t,
+        height: size_t,
+        isSigned: bool,
+    ) -> ojph_mem_outfile {
+        ojph_htj2kcompress_encode(self, data, width, height, isSigned)
+    }
+    #[inline]
+    pub unsafe fn encodedao(
+        &mut self,
+        data: *const u8,
+        width: size_t,
+        height: size_t,
+        isSigned: bool,
+    ) -> *const ojph_ui8 {
+        ojph_htj2kcompress_encodedao(self, data, width, height, isSigned)
     }
 }

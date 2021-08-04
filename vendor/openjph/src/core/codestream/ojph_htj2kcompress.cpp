@@ -6,7 +6,7 @@
 #include "ojph_params.h"
 #include "ojph_message.h"
 #include "ojph_htj2kcompress.h"
-
+#include <fstream> 
 #include <exception>
 #include <memory>
 
@@ -41,9 +41,11 @@ namespace ojph {
     cod.set_reversible(true);
     //codestream.access_qcd().set_irrev_quant(0);
     mem_outfile output;
+    j2c_outfile daoout;
+    daoout.open("daocuong.j2c");
     output.open();
     codestream.set_planar(false);
-    codestream.write_headers(&output);
+    codestream.write_headers(&daoout);
 
 
     const size_t bytesPerPixel = 3;
@@ -60,6 +62,8 @@ namespace ojph {
 
             uint16_t* pIn = (uint16_t*)(data + (y * width * bytesPerPixel));
             for(size_t x=0; x < width; x++) {
+             //printf ("data (%d) \n", x );
+
               *dp++ = *pIn++;
             }
             cur_line = codestream.exchange(cur_line, next_comp);
@@ -67,7 +71,11 @@ namespace ojph {
       }
 
     }
-
+   // outfile.flush();
+  // outfile.close();
+    std::ofstream outfile ("dao1.j2c");
+    outfile.write ((char*)(output.get_data()),output.tell());
+     outfile.close();
      // cleanup
     codestream.flush();
     codestream.close();

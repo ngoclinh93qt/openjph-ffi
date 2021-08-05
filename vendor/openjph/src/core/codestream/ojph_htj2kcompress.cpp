@@ -9,22 +9,22 @@
 #include <fstream> 
 #include <exception>
 #include <memory>
-//#include "ojph_img_io.h"
-
 
 
 
 namespace ojph {
-
+    int read(const line_buf* line,const uint8_t* data, int width, int row, int column) {
+      int index = 3*width*row;
+      const uint8_t* temp_buf = &data[index];
+      const ui8* sp = (ui8*)temp_buf + column;
+      si32* dp = line->i32;
+      for (int i = width; i > 0; --i, sp+=3)
+        *dp++ = (si32)*sp;
+      return width;
+    }
     const ui8* htj2kcompress::encodedao(const uint8_t* data, size_t width, size_t height, bool isSigned) {
     printf ("width (%d) \n", width );
     printf ("height (%d) \n", height );
-   // ojph::ppm_in ppm;
-    //ojph::image_in_base *base = NULL;
-    //ppm.open("./tests/labe.ppm");
-    //base = &ppm;
-
-    
     ojph::codestream codestream;
     ojph::param_siz siz = codestream.access_siz();
     siz.set_image_extent(ojph::point(width, height));
@@ -59,26 +59,22 @@ namespace ojph {
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
         printf ("height (%d) \n", siz.get_num_components() );
 
-
+    ui8* temp_buf;
      for (size_t y = 0; y < height; y++)
     {
       for (size_t c = 0; c < siz.get_num_components(); c++)
       {       
-           int* dp = cur_line->i32;
 
-            uint16_t* pIn = (uint16_t*)(data + (y * width * bytesPerPixel));
-            for(size_t x=0; x < width; x++) {
-             //printf ("data (%d) \n", x );
+         assert(c == next_comp);
+         
 
-              *dp++ = *pIn++;
-            }
-            cur_line = codestream.exchange(cur_line, next_comp);
+        read(cur_line,data,width,y,next_comp);
+          
+         cur_line = codestream.exchange(cur_line, next_comp);
 
       }
 
     }
-   // outfile.flush();
-  // outfile.close();
   
      // cleanup
     codestream.flush();

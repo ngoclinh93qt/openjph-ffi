@@ -10,6 +10,3 @@
 #include "ojph_transform.h"
 
 
-
-
-

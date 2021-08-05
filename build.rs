@@ -15,6 +15,7 @@ fn main() {
     cc.include(otherdir);
     cc.include(transformdir);
     cc.include(commondir);
+
     cc.cpp(true);
     cc.cpp_set_stdlib("c++");
     cc.flag("-std=c++17");
@@ -30,6 +31,7 @@ fn main() {
           "others/ojph_arch.cpp",
           "others/ojph_file.cpp",
           "others/ojph_mem.cpp",
+
           "others/ojph_message.cpp",
          "transform/ojph_colour_avx.cpp",
           "transform/ojph_colour_avx2.cpp",

@@ -172,11 +172,14 @@ namespace ojph {
   /////////////////////////////////////////////////////////////////////////////
   int ppm_in::read(const line_buf* line, int comp_num)
   {
+
+    
     assert(temp_buf_byte_size != 0 && fh != 0 && comp_num < num_comps);
     assert((int)line->size >= width);
-
+ 
     if (planar || comp_num == 0)
     {
+      
       int result = (int)fread(
         temp_buf, bytes_per_sample, num_ele_per_line, fh);
       if (result != num_ele_per_line)
@@ -200,6 +203,7 @@ namespace ojph {
     }
     else
     {
+≈
       const ui16* sp = (ui16*)temp_buf + comp_num;
       si32* dp = line->i32;
       for (int i = width; i > 0; --i, sp+=num_comps)

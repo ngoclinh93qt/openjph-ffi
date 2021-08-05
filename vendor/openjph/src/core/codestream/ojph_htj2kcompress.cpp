@@ -25,7 +25,7 @@ namespace ojph {
     int num_comps = 3;
     siz.set_num_components(num_comps);
     for (int c = 0; c < num_comps; ++c)
-        siz.set_component(c, ojph::point(1, 1), 8, isSigned);
+        siz.set_component(c, ojph::point(1, 1), 8, false);
     siz.set_image_offset(ojph::point(0, 0));
     siz.set_tile_size(ojph::size(0,0));
     siz.set_tile_offset(ojph::point(0, 0));
@@ -36,13 +36,13 @@ namespace ojph {
     
 
     const char* progOrders[] = {"LRCP", "RLCP", "RPCL", "PCRL", "CPRL"};
-    cod.set_progression_order(progOrders[2]);
-    cod.set_color_transform(false);
-    cod.set_reversible(true);
-    //codestream.access_qcd().set_irrev_quant(0);
+    cod.set_progression_order(progOrders[4]);
+    cod.set_color_transform(true);
+    cod.set_reversible(false);
+    codestream.access_qcd().set_irrev_quant(0.5);
     mem_outfile output;
     j2c_outfile daoout;
-    daoout.open("daocuong.j2c");
+    daoout.open("daocuongx.j2c");
     output.open();
     codestream.set_planar(false);
     codestream.write_headers(&daoout);

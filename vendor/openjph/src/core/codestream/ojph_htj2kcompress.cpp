@@ -9,6 +9,7 @@
 #include <fstream> 
 #include <exception>
 #include <memory>
+//#include "ojph_img_io.h"
 
 
 
@@ -18,7 +19,12 @@ namespace ojph {
     const ui8* htj2kcompress::encodedao(const uint8_t* data, size_t width, size_t height, bool isSigned) {
     printf ("width (%d) \n", width );
     printf ("height (%d) \n", height );
+   // ojph::ppm_in ppm;
+    //ojph::image_in_base *base = NULL;
+    //ppm.open("./tests/labe.ppm");
+    //base = &ppm;
 
+    
     ojph::codestream codestream;
     ojph::param_siz siz = codestream.access_siz();
     siz.set_image_extent(ojph::point(width, height));
@@ -73,9 +79,7 @@ namespace ojph {
     }
    // outfile.flush();
   // outfile.close();
-    std::ofstream outfile ("dao1.j2c");
-    outfile.write ((char*)(output.get_data()),output.tell());
-     outfile.close();
+  
      // cleanup
     codestream.flush();
     codestream.close();
@@ -128,8 +132,9 @@ namespace ojph {
             for(size_t x=0; x < width; x++) {
               *dp++ = *pIn++;
             }
+          cur_line = codestream.exchange(cur_line, next_comp);
+
       }
-      cur_line = codestream.exchange(cur_line, next_comp);
 
     }
 

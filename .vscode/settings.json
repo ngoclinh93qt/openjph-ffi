@@ -5,6 +5,8 @@
             "cstdint": "cpp",
             "cstring": "cpp",
             "__config": "cpp",
-            "cstdlib": "cpp"
+            "cstdlib": "cpp",
+            "istream": "cpp",
+            "ostream": "cpp"
       }
 }

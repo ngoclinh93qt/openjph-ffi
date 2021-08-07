@@ -4,14 +4,14 @@ fn main() {
 
 #[allow(bad_style)]
 mod ffi;
-
+use std::time::{Duration, Instant};
 pub use crate::ffi::*;
 use image::*;
 use std::fs::*;
 
 fn poke() {
       unsafe {
-            let img = image::open("./tests/labe.ppm").unwrap();
+            let img = image::open("./tests/lab.jpg").unwrap();
             let width = img.width();
             let dimentsion = img.dimensions();
 
@@ -21,7 +21,14 @@ fn poke() {
             let mut bytes = std::fs::read("./tests/labe.ppm").expect("no file found");
 
             println!("{}",bytes.len());
+            let now = Instant::now();
+
             let mut d = ojph_htj2kcompress{_address:1};
-            let out = d.encodedao(bytes.as_mut_ptr(), dimentsion.0 as usize, dimentsion.1 as usize,  false);
+            let out = d.encodedao(data.as_mut_ptr(), dimentsion.0 as usize, dimentsion.1 as usize,  false);
+
+            let elapase = now.elapsed();
+            println!("{}",elapase.as_millis());
+
+            let decode_inputfile = std::fs::read("./tests/daocuongx.j2c").expect("no file found");
       }
 }

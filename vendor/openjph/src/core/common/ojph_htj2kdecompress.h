@@ -1,5 +1,5 @@
-#ifndef OJPH_HTJ2KCOMPRESS_H
-#define OJPH_HTJ2KCOMPRESS_H
+#ifndef OJPH_HTJ2KDECOMPRESS_H
+#define OJPH_HTJ2KDECOMPRESS_H
 
 #include <cstdlib>
 #include <cstdio>

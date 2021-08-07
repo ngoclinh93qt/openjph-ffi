@@ -11,7 +11,7 @@ libc = "0.2.94"
 bindgen = "0.53.1"
 image = "*"
 cc = { version =  "1.0.67", features = ["parallel"] }
-
+time = "*"
 [build-dependencies]
 cc = { version =  "1.0.67", features = ["parallel"] }
 bindgen = "0.53.1"

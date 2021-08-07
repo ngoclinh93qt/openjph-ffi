@@ -26,6 +26,8 @@ fn main() {
           "codestream/ojph_codestream.cpp",
           "codestream/ojph_params.cpp",
           "codestream/ojph_htj2kcompress.cpp",
+          "codestream/ojph_htj2kdecompress.cpp",
+
           "coding/ojph_block_decoder.cpp",
           "coding/ojph_block_encoder.cpp",
           "others/ojph_arch.cpp",

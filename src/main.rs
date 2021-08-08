@@ -34,8 +34,8 @@ fn poke() {
             let mut decode_inputfile = std::fs::read("./tests/daocuongx.j2c").expect("no file found");
             let size = decode_inputfile.len();
 
-            let out = decoder.decode(decode_inputfile.as_mut_ptr(),size as usize );
+            let out_de = decoder.decode(decode_inputfile.as_mut_ptr(),size as usize );
 
-           println!("DDDDDDD{}",out.buf_size)
+      // println!("DDDDDDD{}",out.buf_size)
       }
 }

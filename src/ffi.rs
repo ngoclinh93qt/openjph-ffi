@@ -1941,3 +1941,35 @@ impl ojph_htj2kcompress {
         ojph_htj2kcompress_encodedao(self, data, width, height, isSigned)
     }
 }
+#[repr(C)]
+#[derive(Debug)]
+pub struct ojph_htj2kdecompress {
+    pub _address: u8,
+}
+#[test]
+fn bindgen_test_layout_ojph_htj2kdecompress() {
+    assert_eq!(
+        ::std::mem::size_of::<ojph_htj2kdecompress>(),
+        1usize,
+        concat!("Size of: ", stringify!(ojph_htj2kdecompress))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<ojph_htj2kdecompress>(),
+        1usize,
+        concat!("Alignment of ", stringify!(ojph_htj2kdecompress))
+    );
+}
+extern "C" {
+    #[link_name = "\u{1}__ZN4ojph15htj2kdecompress6decodeEPKhm"]
+    pub fn ojph_htj2kdecompress_decode(
+        this: *mut ojph_htj2kdecompress,
+        data: *const u8,
+        size: size_t,
+    ) -> ojph_mem_outfile;
+}
+impl ojph_htj2kdecompress {
+    #[inline]
+    pub unsafe fn decode(&mut self, data: *const u8, size: size_t) -> ojph_mem_outfile {
+        ojph_htj2kdecompress_decode(self, data, size)
+    }
+}

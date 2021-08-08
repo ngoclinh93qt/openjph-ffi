@@ -29,6 +29,13 @@ fn poke() {
             let elapase = now.elapsed();
             println!("{}",elapase.as_millis());
 
-            let decode_inputfile = std::fs::read("./tests/daocuongx.j2c").expect("no file found");
+
+            let mut decoder = ojph_htj2kdecompress{_address:3};
+            let mut decode_inputfile = std::fs::read("./tests/daocuongx.j2c").expect("no file found");
+            let size = decode_inputfile.len();
+
+            let out = decoder.decode(decode_inputfile.as_mut_ptr(),size as usize );
+
+           println!("DDDDDDD{}",out.buf_size)
       }
 }

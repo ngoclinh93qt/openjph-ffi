@@ -28,7 +28,7 @@ class htj2kdecompress
     ~htj2kdecompress() { }
 
     OJPH_EXPORT
-    mem_outfile decode(const uint8_t* data, size_t width, int height) ;
+    mem_outfile decode(const uint8_t* data, size_t size) ;
    
   };
 }

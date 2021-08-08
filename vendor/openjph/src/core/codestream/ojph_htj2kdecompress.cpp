@@ -5,7 +5,7 @@
 #include "ojph_codestream.h"
 #include "ojph_params.h"
 #include "ojph_message.h"
-#include "ojph_htj2kcompress.h"
+#include "ojph_htj2kdecompress.h"
 #include <fstream> 
 #include <exception>
 #include <memory>
@@ -39,11 +39,11 @@ namespace ojph {
 
         return width;
     }
-    mem_outfile decode(const uint8_t* data, size_t width, int height) 
+    mem_outfile htj2kdecompress::decode(const uint8_t* data, size_t size) 
 {
 
     ojph::mem_infile mem_infile;
-    mem_infile.open(data,100000);
+    mem_infile.open(data,size);
     ojph::codestream codestream;
     ojph::mem_outfile mem_outfile;
 
@@ -55,6 +55,8 @@ namespace ojph {
     
        ojph::param_siz siz = codestream.access_siz();
       ui8* buffer  = (ui8*)malloc(65536);
+      ui32 height = siz.get_recon_height(0);
+      ui32 width = siz.get_recon_height(0);
 
       for (int i = 0; i < height; ++i)
       {

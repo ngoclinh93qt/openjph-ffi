@@ -19,14 +19,14 @@ fn main() {
     cc.cpp(true);
     cc.cpp_set_stdlib("c++");
     cc.flag("-std=c++17");
-    cc.flag("-mavx");
-    cc.flag("-mavx2");
+     cc.flag("-mavx");
+     cc.flag("-mavx2");
 
     let files = [
           "codestream/ojph_codestream.cpp",
           "codestream/ojph_params.cpp",
           "codestream/ojph_htj2kcompress.cpp",
-          "codestream/ojph_decompress.cpp",
+          "codestream/ojph_htj2kdecompress.cpp",
 
           "coding/ojph_block_decoder.cpp",
           "coding/ojph_block_encoder.cpp",

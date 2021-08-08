@@ -1057,22 +1057,16 @@ pub struct ojph_htj2kdecompress {
     pub _address: u8,
 }
 extern "C" {
-    #[link_name = "\u{1}__ZN4ojph15htj2kdecompress6decodeEPKhmi"]
+    #[link_name = "\u{1}__ZN4ojph15htj2kdecompress6decodeEPKhm"]
     pub fn ojph_htj2kdecompress_decode(
         this: *mut ojph_htj2kdecompress,
         data: *const u8,
-        width: size_t,
-        height: c_int,
+        size: size_t,
     ) -> ojph_mem_outfile;
 }
 impl ojph_htj2kdecompress {
     #[inline]
-    pub unsafe fn decode(
-        &mut self,
-        data: *const u8,
-        width: size_t,
-        height: c_int,
-    ) -> ojph_mem_outfile {
-        ojph_htj2kdecompress_decode(self, data, width, height)
+    pub unsafe fn decode(&mut self, data: *const u8, size: size_t) -> ojph_mem_outfile {
+        ojph_htj2kdecompress_decode(self, data, size)
     }
 }

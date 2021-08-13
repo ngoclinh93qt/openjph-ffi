@@ -111,6 +111,18 @@ namespace ojph {
   {
     close();
   }
+    const ui8* mem_outfile::get_dao() {
+      printf("sdsdsds\n");
+      printf("sdsdsds%d\n",buf);
+            printf("sdsdsds%d\n",cur_ptr);
+                        printf("sdsdsds%d\n",cur_ptr-buf);
+
+      printf("sdsdsds%d\n",buf[0]);
+
+          // printf("sdsdsds%d\n",buf[6220799]);
+
+      return buf;
+    }
 
   /**  */
   void mem_outfile::open(size_t initial_size /* = 65536 */)
@@ -164,6 +176,7 @@ namespace ojph {
     // copy bytes into buffer and adjust cur_ptr
     memcpy(this->cur_ptr, ptr, size);
     cur_ptr += size;
+     // printf("size %d start %d end %d file %d\n",size,this->buf,  this->cur_ptr, (this->cur_ptr-this->buf));
 
     return size;
   }

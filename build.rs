@@ -19,8 +19,8 @@ fn main() {
     cc.cpp(true);
     cc.cpp_set_stdlib("c++");
     cc.flag("-std=c++17");
-    cc.flag("-mavx");
-    cc.flag("-mavx2");
+     cc.flag("-mavx");
+     cc.flag("-mavx2");
 
     let files = [
           "codestream/ojph_codestream.cpp",

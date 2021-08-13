@@ -203,7 +203,7 @@ namespace ojph {
     }
     else
     {
-≈
+
       const ui16* sp = (ui16*)temp_buf + comp_num;
       si32* dp = line->i32;
       for (int i = width; i > 0; --i, sp+=num_comps)

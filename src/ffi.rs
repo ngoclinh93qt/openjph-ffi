@@ -24,48 +24,12 @@ pub struct ojph_outfile_base__bindgen_vtable(c_void);
 pub struct ojph_outfile_base {
     pub vtable_: *const ojph_outfile_base__bindgen_vtable,
 }
-#[test]
-fn bindgen_test_layout_ojph_outfile_base() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_outfile_base>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_outfile_base))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_outfile_base>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_outfile_base))
-    );
-}
 ///
 #[repr(C)]
 #[derive(Debug)]
 pub struct ojph_j2c_outfile {
     pub _base: ojph_outfile_base,
     pub fh: *mut FILE,
-}
-#[test]
-fn bindgen_test_layout_ojph_j2c_outfile() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_j2c_outfile>(),
-        16usize,
-        concat!("Size of: ", stringify!(ojph_j2c_outfile))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_j2c_outfile>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_j2c_outfile))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_j2c_outfile>())).fh as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_j2c_outfile),
-            "::",
-            stringify!(fh)
-        )
-    );
 }
 extern "C" {
     #[link_name = "\u{1}__ZN4ojph11j2c_outfile4openEPKc"]
@@ -119,59 +83,6 @@ pub struct ojph_mem_outfile {
     pub buf: *mut ojph_ui8,
     pub cur_ptr: *mut ojph_ui8,
 }
-#[test]
-fn bindgen_test_layout_ojph_mem_outfile() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_mem_outfile>(),
-        40usize,
-        concat!("Size of: ", stringify!(ojph_mem_outfile))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_mem_outfile>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_mem_outfile))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_mem_outfile>())).is_open as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_outfile),
-            "::",
-            stringify!(is_open)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_mem_outfile>())).buf_size as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_outfile),
-            "::",
-            stringify!(buf_size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_mem_outfile>())).buf as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_outfile),
-            "::",
-            stringify!(buf)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_mem_outfile>())).cur_ptr as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_outfile),
-            "::",
-            stringify!(cur_ptr)
-        )
-    );
-}
 extern "C" {
     ///  Call this function to open a memory file.
     ///
@@ -184,6 +95,10 @@ extern "C" {
     pub fn ojph_mem_outfile_open(this: *mut ojph_mem_outfile, initial_size: size_t);
 }
 extern "C" {
+    #[link_name = "\u{1}__ZN4ojph11mem_outfile7get_daoEv"]
+    pub fn ojph_mem_outfile_get_dao(this: *mut ojph_mem_outfile) -> *const ojph_ui8;
+}
+extern "C" {
     ///  A constructor
     #[link_name = "\u{1}__ZN4ojph11mem_outfileC1Ev"]
     pub fn ojph_mem_outfile_mem_outfile(this: *mut ojph_mem_outfile);
@@ -192,6 +107,10 @@ impl ojph_mem_outfile {
     #[inline]
     pub unsafe fn open(&mut self, initial_size: size_t) {
         ojph_mem_outfile_open(self, initial_size)
+    }
+    #[inline]
+    pub unsafe fn get_dao(&mut self) -> *const ojph_ui8 {
+        ojph_mem_outfile_get_dao(self)
     }
     #[inline]
     pub unsafe fn new() -> Self {
@@ -242,48 +161,12 @@ pub enum ojph_infile_base_seek {
     OJPH_SEEK_CUR = 1,
     OJPH_SEEK_END = 2,
 }
-#[test]
-fn bindgen_test_layout_ojph_infile_base() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_infile_base>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_infile_base))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_infile_base>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_infile_base))
-    );
-}
 ///
 #[repr(C)]
 #[derive(Debug)]
 pub struct ojph_j2c_infile {
     pub _base: ojph_infile_base,
     pub fh: *mut FILE,
-}
-#[test]
-fn bindgen_test_layout_ojph_j2c_infile() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_j2c_infile>(),
-        16usize,
-        concat!("Size of: ", stringify!(ojph_j2c_infile))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_j2c_infile>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_j2c_infile))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_j2c_infile>())).fh as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_j2c_infile),
-            "::",
-            stringify!(fh)
-        )
-    );
 }
 extern "C" {
     #[link_name = "\u{1}__ZN4ojph10j2c_infile4openEPKc"]
@@ -330,49 +213,6 @@ pub struct ojph_mem_infile {
     pub cur_ptr: *const ojph_ui8,
     pub size: size_t,
 }
-#[test]
-fn bindgen_test_layout_ojph_mem_infile() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_mem_infile>(),
-        32usize,
-        concat!("Size of: ", stringify!(ojph_mem_infile))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_mem_infile>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_mem_infile))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_mem_infile>())).data as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_infile),
-            "::",
-            stringify!(data)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_mem_infile>())).cur_ptr as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_infile),
-            "::",
-            stringify!(cur_ptr)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_mem_infile>())).size as *const _ as usize },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_infile),
-            "::",
-            stringify!(size)
-        )
-    );
-}
 extern "C" {
     #[link_name = "\u{1}__ZN4ojph10mem_infile4openEPKhm"]
     pub fn ojph_mem_infile_open(this: *mut ojph_mem_infile, data: *const ojph_ui8, size: size_t);
@@ -410,102 +250,6 @@ pub struct ojph_mem_fixed_allocator {
     pub avail_size_obj: size_t,
     pub avail_size_data: size_t,
 }
-#[test]
-fn bindgen_test_layout_ojph_mem_fixed_allocator() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_mem_fixed_allocator>(),
-        56usize,
-        concat!("Size of: ", stringify!(ojph_mem_fixed_allocator))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_mem_fixed_allocator>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_mem_fixed_allocator))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_mem_fixed_allocator>())).store as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_fixed_allocator),
-            "::",
-            stringify!(store)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_mem_fixed_allocator>())).avail_data as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_fixed_allocator),
-            "::",
-            stringify!(avail_data)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_mem_fixed_allocator>())).avail_obj as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_fixed_allocator),
-            "::",
-            stringify!(avail_obj)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_mem_fixed_allocator>())).size_data as *const _ as usize
-        },
-        24usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_fixed_allocator),
-            "::",
-            stringify!(size_data)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_mem_fixed_allocator>())).size_obj as *const _ as usize
-        },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_fixed_allocator),
-            "::",
-            stringify!(size_obj)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_mem_fixed_allocator>())).avail_size_obj as *const _ as usize
-        },
-        40usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_fixed_allocator),
-            "::",
-            stringify!(avail_size_obj)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_mem_fixed_allocator>())).avail_size_data as *const _
-                as usize
-        },
-        48usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_fixed_allocator),
-            "::",
-            stringify!(avail_size_data)
-        )
-    );
-}
 ///
 #[repr(C)]
 pub struct ojph_line_buf {
@@ -519,76 +263,6 @@ pub union ojph_line_buf__bindgen_ty_1 {
     pub i32_: *mut ojph_si32,
     pub f32_: *mut f32,
 }
-#[test]
-fn bindgen_test_layout_ojph_line_buf__bindgen_ty_1() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_line_buf__bindgen_ty_1>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_line_buf__bindgen_ty_1))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_line_buf__bindgen_ty_1>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_line_buf__bindgen_ty_1))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_line_buf__bindgen_ty_1>())).i32_ as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_line_buf__bindgen_ty_1),
-            "::",
-            stringify!(i32_)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_line_buf__bindgen_ty_1>())).f32_ as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_line_buf__bindgen_ty_1),
-            "::",
-            stringify!(f32_)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_ojph_line_buf() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_line_buf>(),
-        24usize,
-        concat!("Size of: ", stringify!(ojph_line_buf))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_line_buf>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_line_buf))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_line_buf>())).size as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_line_buf),
-            "::",
-            stringify!(size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_line_buf>())).pre_size as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_line_buf),
-            "::",
-            stringify!(pre_size)
-        )
-    );
-}
 ///
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -597,59 +271,6 @@ pub struct ojph_coded_lists {
     pub buf_size: c_int,
     pub avail_size: c_int,
     pub buf: *mut ojph_ui8,
-}
-#[test]
-fn bindgen_test_layout_ojph_coded_lists() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_coded_lists>(),
-        24usize,
-        concat!("Size of: ", stringify!(ojph_coded_lists))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_coded_lists>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_coded_lists))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_coded_lists>())).next_list as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_coded_lists),
-            "::",
-            stringify!(next_list)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_coded_lists>())).buf_size as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_coded_lists),
-            "::",
-            stringify!(buf_size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_coded_lists>())).avail_size as *const _ as usize },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_coded_lists),
-            "::",
-            stringify!(avail_size)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_coded_lists>())).buf as *const _ as usize },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_coded_lists),
-            "::",
-            stringify!(buf)
-        )
-    );
 }
 ///
 #[repr(C)]
@@ -666,126 +287,6 @@ pub struct ojph_mem_elastic_allocator_stores_list {
     pub next_store: *mut ojph_mem_elastic_allocator_stores_list,
     pub available: c_int,
     pub data: *mut c_char,
-}
-#[test]
-fn bindgen_test_layout_ojph_mem_elastic_allocator_stores_list() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_mem_elastic_allocator_stores_list>(),
-        24usize,
-        concat!(
-            "Size of: ",
-            stringify!(ojph_mem_elastic_allocator_stores_list)
-        )
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_mem_elastic_allocator_stores_list>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(ojph_mem_elastic_allocator_stores_list)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_mem_elastic_allocator_stores_list>())).next_store
-                as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_elastic_allocator_stores_list),
-            "::",
-            stringify!(next_store)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_mem_elastic_allocator_stores_list>())).available as *const _
-                as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_elastic_allocator_stores_list),
-            "::",
-            stringify!(available)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_mem_elastic_allocator_stores_list>())).data as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_elastic_allocator_stores_list),
-            "::",
-            stringify!(data)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_ojph_mem_elastic_allocator() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_mem_elastic_allocator>(),
-        24usize,
-        concat!("Size of: ", stringify!(ojph_mem_elastic_allocator))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_mem_elastic_allocator>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_mem_elastic_allocator))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_mem_elastic_allocator>())).store as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_elastic_allocator),
-            "::",
-            stringify!(store)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_mem_elastic_allocator>())).cur_store as *const _ as usize
-        },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_elastic_allocator),
-            "::",
-            stringify!(cur_store)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_mem_elastic_allocator>())).total_allocated as *const _
-                as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_elastic_allocator),
-            "::",
-            stringify!(total_allocated)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_mem_elastic_allocator>())).chunk_size as *const _ as usize
-        },
-        20usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_mem_elastic_allocator),
-            "::",
-            stringify!(chunk_size)
-        )
-    );
 }
 extern "C" {
     #[link_name = "\u{1}__ZN4ojph21mem_elastic_allocator10get_bufferEiRPNS_11coded_listsE"]
@@ -812,39 +313,6 @@ pub struct ojph_size {
     pub w: ojph_si32,
     pub h: ojph_si32,
 }
-#[test]
-fn bindgen_test_layout_ojph_size() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_size>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_size))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_size>(),
-        4usize,
-        concat!("Alignment of ", stringify!(ojph_size))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_size>())).w as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_size),
-            "::",
-            stringify!(w)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_size>())).h as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_size),
-            "::",
-            stringify!(h)
-        )
-    );
-}
 ///
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -852,78 +320,12 @@ pub struct ojph_point {
     pub x: ojph_si32,
     pub y: ojph_si32,
 }
-#[test]
-fn bindgen_test_layout_ojph_point() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_point>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_point))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_point>(),
-        4usize,
-        concat!("Alignment of ", stringify!(ojph_point))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_point>())).x as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_point),
-            "::",
-            stringify!(x)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_point>())).y as *const _ as usize },
-        4usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_point),
-            "::",
-            stringify!(y)
-        )
-    );
-}
 ///
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ojph_rect {
     pub org: ojph_point,
     pub siz: ojph_size,
-}
-#[test]
-fn bindgen_test_layout_ojph_rect() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_rect>(),
-        16usize,
-        concat!("Size of: ", stringify!(ojph_rect))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_rect>(),
-        4usize,
-        concat!("Alignment of ", stringify!(ojph_rect))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_rect>())).org as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_rect),
-            "::",
-            stringify!(org)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_rect>())).siz as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_rect),
-            "::",
-            stringify!(siz)
-        )
-    );
 }
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -970,29 +372,6 @@ extern "C" {
 #[derive(Debug, Copy, Clone)]
 pub struct ojph_param_siz {
     pub state: *mut ojph_local_param_siz,
-}
-#[test]
-fn bindgen_test_layout_ojph_param_siz() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_param_siz>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_param_siz))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_param_siz>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_param_siz))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_param_siz>())).state as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_param_siz),
-            "::",
-            stringify!(state)
-        )
-    );
 }
 extern "C" {
     #[link_name = "\u{1}__ZN4ojph9param_siz16set_image_extentENS_5pointE"]
@@ -1156,29 +535,6 @@ impl ojph_param_siz {
 #[derive(Debug, Copy, Clone)]
 pub struct ojph_param_cod {
     pub state: *mut ojph_local_param_cod,
-}
-#[test]
-fn bindgen_test_layout_ojph_param_cod() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_param_cod>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_param_cod))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_param_cod>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_param_cod))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_param_cod>())).state as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_param_cod),
-            "::",
-            stringify!(state)
-        )
-    );
 }
 extern "C" {
     #[link_name = "\u{1}__ZN4ojph9param_cod21set_num_decompositionEj"]
@@ -1366,29 +722,6 @@ impl ojph_param_cod {
 pub struct ojph_param_qcd {
     pub state: *mut ojph_local_param_qcd,
 }
-#[test]
-fn bindgen_test_layout_ojph_param_qcd() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_param_qcd>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_param_qcd))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_param_qcd>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_param_qcd))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_param_qcd>())).state as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_param_qcd),
-            "::",
-            stringify!(state)
-        )
-    );
-}
 extern "C" {
     #[link_name = "\u{1}__ZN4ojph9param_qcd15set_irrev_quantEf"]
     pub fn ojph_param_qcd_set_irrev_quant(this: *mut ojph_param_qcd, delta: f32);
@@ -1405,57 +738,11 @@ impl ojph_param_qcd {
 pub struct ojph_param_qcc {
     pub state: *mut ojph_local_param_qcc,
 }
-#[test]
-fn bindgen_test_layout_ojph_param_qcc() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_param_qcc>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_param_qcc))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_param_qcc>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_param_qcc))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_param_qcc>())).state as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_param_qcc),
-            "::",
-            stringify!(state)
-        )
-    );
-}
 ///
 #[repr(C)]
 #[derive(Debug)]
 pub struct ojph_codestream {
     pub state: *mut ojph_local_codestream,
-}
-#[test]
-fn bindgen_test_layout_ojph_codestream() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_codestream>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_codestream))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_codestream>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_codestream))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_codestream>())).state as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_codestream),
-            "::",
-            stringify!(state)
-        )
-    );
 }
 extern "C" {
     #[link_name = "\u{1}__ZN4ojph10codestream3daoEv"]
@@ -1634,39 +921,6 @@ pub struct ojph_argument {
     pub arg: *mut c_char,
     pub index: c_int,
 }
-#[test]
-fn bindgen_test_layout_ojph_argument() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_argument>(),
-        16usize,
-        concat!("Size of: ", stringify!(ojph_argument))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_argument>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_argument))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_argument>())).arg as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_argument),
-            "::",
-            stringify!(arg)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_argument>())).index as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_argument),
-            "::",
-            stringify!(index)
-        )
-    );
-}
 ///
 #[repr(C)]
 #[derive(Debug)]
@@ -1683,77 +937,6 @@ pub struct ojph_cli_interpreter_arg_inter_base__bindgen_vtable(c_void);
 #[derive(Debug, Copy, Clone)]
 pub struct ojph_cli_interpreter_arg_inter_base {
     pub vtable_: *const ojph_cli_interpreter_arg_inter_base__bindgen_vtable,
-}
-#[test]
-fn bindgen_test_layout_ojph_cli_interpreter_arg_inter_base() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_cli_interpreter_arg_inter_base>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_cli_interpreter_arg_inter_base))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_cli_interpreter_arg_inter_base>(),
-        8usize,
-        concat!(
-            "Alignment of ",
-            stringify!(ojph_cli_interpreter_arg_inter_base)
-        )
-    );
-}
-#[test]
-fn bindgen_test_layout_ojph_cli_interpreter() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_cli_interpreter>(),
-        40usize,
-        concat!("Size of: ", stringify!(ojph_cli_interpreter))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_cli_interpreter>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_cli_interpreter))
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_cli_interpreter>())).argv as *const _ as usize },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_cli_interpreter),
-            "::",
-            stringify!(argv)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_cli_interpreter>())).argc as *const _ as usize },
-        8usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_cli_interpreter),
-            "::",
-            stringify!(argc)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<ojph_cli_interpreter>())).avail_store as *const _ as usize
-        },
-        12usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_cli_interpreter),
-            "::",
-            stringify!(avail_store)
-        )
-    );
-    assert_eq!(
-        unsafe { &(*(::std::ptr::null::<ojph_cli_interpreter>())).avail as *const _ as usize },
-        32usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(ojph_cli_interpreter),
-            "::",
-            stringify!(avail)
-        )
-    );
 }
 #[repr(i32)]
 ///
@@ -1772,37 +955,11 @@ pub struct ojph_message_base__bindgen_vtable(c_void);
 pub struct ojph_message_base {
     pub vtable_: *const ojph_message_base__bindgen_vtable,
 }
-#[test]
-fn bindgen_test_layout_ojph_message_base() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_message_base>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_message_base))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_message_base>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_message_base))
-    );
-}
 ///
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
 pub struct ojph_message_info {
     pub _base: ojph_message_base,
-}
-#[test]
-fn bindgen_test_layout_ojph_message_info() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_message_info>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_message_info))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_message_info>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_message_info))
-    );
 }
 extern "C" {
     ///
@@ -1823,19 +980,6 @@ extern "C" {
 pub struct ojph_message_warning {
     pub _base: ojph_message_base,
 }
-#[test]
-fn bindgen_test_layout_ojph_message_warning() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_message_warning>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_message_warning))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_message_warning>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_message_warning))
-    );
-}
 extern "C" {
     ///
     #[link_name = "\u{1}__ZN4ojph18set_warning_streamEP7__sFILE"]
@@ -1855,19 +999,6 @@ extern "C" {
 pub struct ojph_message_error {
     pub _base: ojph_message_base,
 }
-#[test]
-fn bindgen_test_layout_ojph_message_error() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_message_error>(),
-        8usize,
-        concat!("Size of: ", stringify!(ojph_message_error))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_message_error>(),
-        8usize,
-        concat!("Alignment of ", stringify!(ojph_message_error))
-    );
-}
 extern "C" {
     ///
     #[link_name = "\u{1}__ZN4ojph16set_error_streamEP7__sFILE"]
@@ -1885,19 +1016,6 @@ extern "C" {
 #[derive(Debug)]
 pub struct ojph_htj2kcompress {
     pub _address: u8,
-}
-#[test]
-fn bindgen_test_layout_ojph_htj2kcompress() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_htj2kcompress>(),
-        1usize,
-        concat!("Size of: ", stringify!(ojph_htj2kcompress))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_htj2kcompress>(),
-        1usize,
-        concat!("Alignment of ", stringify!(ojph_htj2kcompress))
-    );
 }
 extern "C" {
     #[link_name = "\u{1}__ZN4ojph13htj2kcompress6encodeEPKhmmb"]
@@ -1946,30 +1064,17 @@ impl ojph_htj2kcompress {
 pub struct ojph_htj2kdecompress {
     pub _address: u8,
 }
-#[test]
-fn bindgen_test_layout_ojph_htj2kdecompress() {
-    assert_eq!(
-        ::std::mem::size_of::<ojph_htj2kdecompress>(),
-        1usize,
-        concat!("Size of: ", stringify!(ojph_htj2kdecompress))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<ojph_htj2kdecompress>(),
-        1usize,
-        concat!("Alignment of ", stringify!(ojph_htj2kdecompress))
-    );
-}
 extern "C" {
     #[link_name = "\u{1}__ZN4ojph15htj2kdecompress6decodeEPKhm"]
     pub fn ojph_htj2kdecompress_decode(
         this: *mut ojph_htj2kdecompress,
         data: *const u8,
         size: size_t,
-    ) -> ojph_mem_outfile;
+    ) -> *mut ojph_mem_outfile;
 }
 impl ojph_htj2kdecompress {
     #[inline]
-    pub unsafe fn decode(&mut self, data: *const u8, size: size_t) -> ojph_mem_outfile {
+    pub unsafe fn decode(&mut self, data: *const u8, size: size_t) -> *mut ojph_mem_outfile {
         ojph_htj2kdecompress_decode(self, data, size)
     }
 }

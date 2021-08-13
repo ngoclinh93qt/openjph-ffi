@@ -176,7 +176,9 @@ namespace ojph {
      */
     OJPH_EXPORT
     const ui8* get_data() { return buf; }
-
+    OJPH_EXPORT
+    const ui8* get_dao();
+  
     /** Call this function to access memory file data (for const objects)
 	 *
      *  This is similar to the above function, except that it can be used
@@ -184,8 +186,8 @@ namespace ojph {
      *
      *  @return a constant pointer to the data.
      */
-    OJPH_EXPORT
-    const ui8* get_data() const { return buf; }
+   // OJPH_EXPORT
+   // const ui8* get_data() const { return buf; }
 
   private:
     bool is_open;

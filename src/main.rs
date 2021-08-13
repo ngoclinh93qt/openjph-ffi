@@ -35,7 +35,23 @@ fn poke() {
             let size = decode_inputfile.len();
 
             let out_de = decoder.decode(decode_inputfile.as_mut_ptr(),size as usize );
+            //println!("DDDDDDD{:?}", (*out_de).cur_ptr );
+           // println!("DDDDDDD{:?}", (*out_de).buf  );
 
-      // println!("DDDDDDD{}",out.buf_size)
+          
+          //  let slice = unsafe { std::slice::from_raw_parts((*out_de).get_dao(), 6220800) };
+            //println!("DDDDDDD{:?}", slice.len()  );
+            //println!("DDDDDDDdfefr {:?}" ,slice);
+          // let buf = (*out_de).get_dao();
+          //let slice = unsafe { std::slice::from_raw_parts(buf, 6220800) };
+           // println!("DDDDDDD{:?}", slice[6220799] );
+
+            //println!("DDDDDDD{:?}", *((*out_de).get_dao().offset(1)) );
+
+            //image::save_buffer("image.ppm", slice, 1920, 1080, image::ColorType::Rgb8).unwrap();
+
+            //let mut bytes = std::fs::write("./tests/daoii.ppm",slice).expect("no file found");
+            
+      
       }
 }

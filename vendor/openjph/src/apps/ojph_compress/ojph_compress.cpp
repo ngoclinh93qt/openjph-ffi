@@ -600,7 +600,7 @@ int main(int argc, char * argv[]) {
         siz.set_tile_offset(tile_offset);
 
         ojph::param_cod cod = codestream.access_cod();
-        cod.set_num_decomposition(num_decompositions);`
+        cod.set_num_decomposition(num_decompositions);
         cod.set_block_dims(block_size.w, block_size.h);
         if (num_precints != -1)
           cod.set_precinct_size(num_precints, precinct_size);

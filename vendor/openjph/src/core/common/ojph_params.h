@@ -103,6 +103,11 @@ namespace ojph {
     local::param_siz* state;
   };
 
+
+struct output_data {
+        void *data;
+        size_t len;
+    };
   ////////////////////////////////////////////////////////////////////////////
   class param_cod
   {

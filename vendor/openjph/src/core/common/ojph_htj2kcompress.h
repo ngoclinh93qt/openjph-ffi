@@ -16,23 +16,27 @@
 
 namespace ojph {
   class mem_outfile;
-
-class htj2kcompress 
+  class htj2kcompress
   {
   public:
 
     OJPH_EXPORT
-    htj2kcompress() {}
+      htj2kcompress() {}
 
     OJPH_EXPORT
-    ~htj2kcompress() { }
+      ~htj2kcompress() { }
 
     OJPH_EXPORT
-    mem_outfile encode(const uint8_t* data, size_t width, size_t height, bool isSigned) ;
+      mem_outfile encode(const uint8_t* data, size_t width, size_t height, bool isSigned);
     OJPH_EXPORT
-    const ui8* encodedao(const uint8_t* data, size_t width, size_t height, bool isSigned) ;
-   
-  };
-}
+      const ui8* encodedao(const uint8_t* data, size_t width, size_t height, bool isSigned);
+
+    OJPH_EXPORT
+      output_data  encodefullquality(const uint8_t* data, size_t width, size_t height);
+
+    OJPH_EXPORT
+      output_data  encodewithqualityrate(const uint8_t* data, size_t width, size_t height, float_t rate) ;
+    };
+  }
 
 #endif

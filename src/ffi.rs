@@ -538,6 +538,11 @@ impl ojph_param_siz {
         ojph_param_siz_get_recon_height(self, comp_num)
     }
 }
+#[repr(C)]
+pub struct ojph_output_data {
+    pub data: *mut c_void,
+    pub len: size_t,
+}
 ///
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
@@ -1045,6 +1050,25 @@ extern "C" {
         isSigned: bool,
     ) -> *const ojph_ui8;
 }
+extern "C" {
+    #[link_name = "\u{1}__ZN4ojph13htj2kcompress17encodefullqualityEPKhmm"]
+    pub fn ojph_htj2kcompress_encodefullquality(
+        this: *mut ojph_htj2kcompress,
+        data: *const u8,
+        width: size_t,
+        height: size_t,
+    ) -> ojph_output_data;
+}
+extern "C" {
+    #[link_name = "\u{1}__ZN4ojph13htj2kcompress21encodewithqualityrateEPKhmmf"]
+    pub fn ojph_htj2kcompress_encodewithqualityrate(
+        this: *mut ojph_htj2kcompress,
+        data: *const u8,
+        width: size_t,
+        height: size_t,
+        quality: f32,
+    ) -> ojph_output_data;
+}
 impl ojph_htj2kcompress {
     #[inline]
     pub unsafe fn encode(
@@ -1066,11 +1090,25 @@ impl ojph_htj2kcompress {
     ) -> *const ojph_ui8 {
         ojph_htj2kcompress_encodedao(self, data, width, height, isSigned)
     }
-}
-#[repr(C)]
-pub struct ojph_output_data {
-    pub data: *mut c_void,
-    pub len: size_t,
+    #[inline]
+    pub unsafe fn encodefullquality(
+        &mut self,
+        data: *const u8,
+        width: size_t,
+        height: size_t,
+    ) -> ojph_output_data {
+        ojph_htj2kcompress_encodefullquality(self, data, width, height)
+    }
+    #[inline]
+    pub unsafe fn encodewithqualityrate(
+        &mut self,
+        data: *const u8,
+        width: size_t,
+        height: size_t,
+        quality: f32,
+    ) -> ojph_output_data {
+        ojph_htj2kcompress_encodewithqualityrate(self, data, width, height, quality)
+    }
 }
 #[repr(C)]
 #[derive(Debug)]

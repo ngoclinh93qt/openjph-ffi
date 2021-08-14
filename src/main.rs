@@ -20,7 +20,6 @@ fn poke() {
 
             let mut bytes = std::fs::read("./tests/labe.ppm").expect("no file found");
 
-            println!("{}",bytes.len());
             let now = Instant::now();
 
             let mut d = ojph_htj2kcompress{_address:1};
@@ -33,7 +32,12 @@ fn poke() {
             let mut decoder = ojph_htj2kdecompress{_address:3};
             let mut decode_inputfile = std::fs::read("./tests/daocuongx.j2c").expect("no file found");
             let size = decode_inputfile.len();
+            let d = Instant::now();
+
             let daoout =  decoder.decode(decode_inputfile.as_mut_ptr(),size as usize );
+            println!("{}",d.elapsed().as_millis());
+
+            
             let len = daoout.len;
            let v =  unsafe { Vec::from_raw_parts(daoout.data as *mut u8, len, len) };
 

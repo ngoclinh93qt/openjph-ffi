@@ -16,10 +16,7 @@
 
 namespace ojph {
   class mem_outfile;
-  struct output_data {
-        void *data;
-        size_t len;
-    };
+  
 class htj2kdecompress 
   {
   public:

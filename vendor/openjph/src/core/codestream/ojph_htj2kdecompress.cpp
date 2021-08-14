@@ -92,6 +92,7 @@ namespace ojph {
     codestream.close();
 
     free(buffer);
+    
     output_data d;
     d.data = outbf;
     d.len = file_size;

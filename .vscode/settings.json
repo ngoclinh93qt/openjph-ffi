@@ -7,6 +7,10 @@
             "__config": "cpp",
             "cstdlib": "cpp",
             "istream": "cpp",
-            "ostream": "cpp"
+            "ostream": "cpp",
+            "__functional_03": "cpp",
+            "fstream": "cpp",
+            "functional": "cpp",
+            "locale": "cpp"
       }
 }

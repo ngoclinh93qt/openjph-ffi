@@ -95,8 +95,12 @@ extern "C" {
     pub fn ojph_mem_outfile_open(this: *mut ojph_mem_outfile, initial_size: size_t);
 }
 extern "C" {
-    #[link_name = "\u{1}__ZN4ojph11mem_outfile7get_daoEv"]
-    pub fn ojph_mem_outfile_get_dao(this: *mut ojph_mem_outfile) -> *const ojph_ui8;
+    #[link_name = "\u{1}__ZN4ojph11mem_outfile10get_bufferEv"]
+    pub fn ojph_mem_outfile_get_buffer(this: *mut ojph_mem_outfile) -> *const ojph_ui8;
+}
+extern "C" {
+    #[link_name = "\u{1}__ZN4ojph11mem_outfile8get_sizeEv"]
+    pub fn ojph_mem_outfile_get_size(this: *mut ojph_mem_outfile) -> ojph_si64;
 }
 extern "C" {
     ///  A constructor
@@ -109,8 +113,12 @@ impl ojph_mem_outfile {
         ojph_mem_outfile_open(self, initial_size)
     }
     #[inline]
-    pub unsafe fn get_dao(&mut self) -> *const ojph_ui8 {
-        ojph_mem_outfile_get_dao(self)
+    pub unsafe fn get_buffer(&mut self) -> *const ojph_ui8 {
+        ojph_mem_outfile_get_buffer(self)
+    }
+    #[inline]
+    pub unsafe fn get_size(&mut self) -> ojph_si64 {
+        ojph_mem_outfile_get_size(self)
     }
     #[inline]
     pub unsafe fn new() -> Self {
@@ -1060,6 +1068,11 @@ impl ojph_htj2kcompress {
     }
 }
 #[repr(C)]
+pub struct ojph_output_data {
+    pub data: *mut c_void,
+    pub len: size_t,
+}
+#[repr(C)]
 #[derive(Debug)]
 pub struct ojph_htj2kdecompress {
     pub _address: u8,
@@ -1070,11 +1083,11 @@ extern "C" {
         this: *mut ojph_htj2kdecompress,
         data: *const u8,
         size: size_t,
-    ) -> *mut ojph_mem_outfile;
+    ) -> ojph_output_data;
 }
 impl ojph_htj2kdecompress {
     #[inline]
-    pub unsafe fn decode(&mut self, data: *const u8, size: size_t) -> *mut ojph_mem_outfile {
+    pub unsafe fn decode(&mut self, data: *const u8, size: size_t) -> ojph_output_data {
         ojph_htj2kdecompress_decode(self, data, size)
     }
 }

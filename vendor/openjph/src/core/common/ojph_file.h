@@ -176,8 +176,11 @@ namespace ojph {
      */
     OJPH_EXPORT
     const ui8* get_data() { return buf; }
+    
     OJPH_EXPORT
-    const ui8* get_dao();
+    const ui8* get_buffer();
+    OJPH_EXPORT
+    si64 get_size();
   
     /** Call this function to access memory file data (for const objects)
 	 *

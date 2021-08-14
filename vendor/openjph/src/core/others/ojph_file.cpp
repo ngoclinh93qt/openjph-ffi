@@ -111,19 +111,13 @@ namespace ojph {
   {
     close();
   }
-    const ui8* mem_outfile::get_dao() {
-      printf("sdsdsds\n");
-      printf("sdsdsds%d\n",buf);
-            printf("sdsdsds%d\n",cur_ptr);
-                        printf("sdsdsds%d\n",cur_ptr-buf);
-
-      printf("sdsdsds%d\n",buf[0]);
-
-          // printf("sdsdsds%d\n",buf[6220799]);
-
-      return buf;
+    si64 mem_outfile::get_size() {
+      return tell();
     }
+  const ui8* mem_outfile::get_buffer() {
+      return buf;
 
+  }
   /**  */
   void mem_outfile::open(size_t initial_size /* = 65536 */)
   {

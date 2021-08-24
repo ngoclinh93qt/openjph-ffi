@@ -36,6 +36,11 @@ fn main() {
 
     cc.flag("-mavx");
     cc.flag("-mavx2");
+    cc.flag("-fexceptions");
+    cc.flag("-Wall");
+    cc.flag("-Wextra");
+    cc.flag("-Wconversion");
+    cc.flag("-Wunused-parameter");
 
     let files = [
         "codestream/ojph_codestream.cpp",

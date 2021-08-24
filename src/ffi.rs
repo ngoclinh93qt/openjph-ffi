@@ -2,6 +2,7 @@
 use std::os::raw::*;
 pub type size_t = usize;
 use libc::FILE;
+pub type float_t = f32;
 ///
 pub type ojph_ui8 = u8;
 pub type ojph_si8 = i8;
@@ -1066,7 +1067,7 @@ extern "C" {
         data: *const u8,
         width: size_t,
         height: size_t,
-        quality: f32,
+        rate: float_t,
     ) -> ojph_output_data;
 }
 impl ojph_htj2kcompress {
@@ -1105,9 +1106,9 @@ impl ojph_htj2kcompress {
         data: *const u8,
         width: size_t,
         height: size_t,
-        quality: f32,
+        rate: float_t,
     ) -> ojph_output_data {
-        ojph_htj2kcompress_encodewithqualityrate(self, data, width, height, quality)
+        ojph_htj2kcompress_encodewithqualityrate(self, data, width, height, rate)
     }
 }
 #[repr(C)]

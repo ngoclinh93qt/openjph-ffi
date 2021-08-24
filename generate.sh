@@ -11,5 +11,6 @@ bindgen --opaque-type=FILE \
         sed -E "s/pub type FILE.*/use libc::FILE;/;
                 s/ @param +([^ ]+)/ * '\1' — /;
                 s/#\\[doc = \"([^\"]*)\"\\]/\\/\\/\\/\1/;
+                s/pub type size_t.*/pub type size_t = usize;/;
                 2s/^/use std::os::raw::*;/;
                 s/::std::os::raw:://g" > src/ffi.rs

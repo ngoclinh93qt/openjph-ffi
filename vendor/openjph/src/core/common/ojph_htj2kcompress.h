@@ -29,7 +29,7 @@ namespace ojph {
     OJPH_EXPORT
       mem_outfile encode(const uint8_t* data, size_t width, size_t height, bool isSigned);
     OJPH_EXPORT
-     int encodedao(const uint8_t* data, size_t width, size_t height, bool isSigned);
+      const ui8* encodedao(const uint8_t* data, size_t width, size_t height, bool isSigned);
 
     OJPH_EXPORT
       output_data  encodefullquality(const uint8_t* data, size_t width, size_t height);

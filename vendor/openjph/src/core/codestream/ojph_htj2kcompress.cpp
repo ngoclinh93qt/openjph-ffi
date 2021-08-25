@@ -207,12 +207,12 @@ namespace ojph {
       for (size_t c = 0; c < siz.get_num_components(); c++)
       {
 
-        // assert(c == next_comp);
+        assert(c == next_comp);
 
 
-        // read(cur_line, data, width, y, next_comp);
+        read(cur_line, data, width, y, next_comp);
 
-        // cur_line = codestream.exchange(cur_line, next_comp);
+        cur_line = codestream.exchange(cur_line, next_comp);
 
 
       }

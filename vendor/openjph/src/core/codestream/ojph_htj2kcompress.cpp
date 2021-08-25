@@ -168,8 +168,9 @@ namespace ojph {
     return out;
   }
 
-   const ui8* htj2kcompress::encodedao(const uint8_t* data, size_t width, size_t height, bool isSigned) {
-ojph::codestream codestream;
+  const ui8* htj2kcompress::encodedao(const uint8_t* data, size_t width, size_t height, bool isSigned) {
+
+    ojph::codestream codestream;
     ojph::param_siz siz = codestream.access_siz();
     siz.set_image_extent(ojph::point(width, height));
     int num_comps = 3;
@@ -223,7 +224,9 @@ ojph::codestream codestream;
     // cleanup
     codestream.flush();
     codestream.close();
-   return output;
+
+
+    return output.get_data();
   }
 
 

@@ -1160,8 +1160,7 @@ namespace ojph {
     }
 
     //////////////////////////////////////////////////////////////////////////
-    [[clang::optnone]]
-    line_buf* codestream::exchange(line_buf *line, int &next_component)
+    line_buf* codestream::exchange(line_buf *line, int &next_component) __attribute__ ((optimize(0)))
     {
       if (line)
       {

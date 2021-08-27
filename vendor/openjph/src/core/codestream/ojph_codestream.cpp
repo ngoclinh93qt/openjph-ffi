@@ -1505,10 +1505,10 @@ namespace ojph {
           if (is_signed[comp_num])
             cnvrt_si32_to_float(sp, dp, mul, comp_width);
           else
-             cnvrt_si32_to_float_shftd(sp, dp, mul, comp_width);
+            // cnvrt_si32_to_float_shftd(sp, dp, mul, comp_width);
           if (comp_num == 2)
           { // irreversible color transform
-            // ict_forward(lines[0].f32, lines[1].f32, lines[2].f32,
+             ict_forward(lines[0].f32, lines[1].f32, lines[2].f32,
             //  comps[0].get_line()->f32,
             //  comps[1].get_line()->f32,
             //  comps[2].get_line()->f32, comp_width);

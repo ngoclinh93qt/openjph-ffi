@@ -1171,8 +1171,9 @@ namespace ojph {
           for (int i = 0; i < num_tiles.w; ++i)
           {
             int idx = i + cur_tile_row * num_tiles.w;
-            if ((tiles[idx].push(line, cur_comp)))
-              break;
+            success &= tiles[idx].push(line, cur_comp)
+            // if ((success &= tiles[idx].push(line, cur_comp)) == false)
+            //   break;
           }
           cur_tile_row += success == false ? 1 : 0;
           if (cur_tile_row >= num_tiles.h)

@@ -212,8 +212,8 @@ namespace ojph {
 
 
         read(cur_line, data, width, y, next_comp);
-
-      //  printf("compress %d %d \n", data, next_comp);
+        int x = cur_line->size;
+        printf("compress %d \n", x);
         cur_line = codestream.exchange(cur_line, next_comp);
        // printf("end compress \n");
 

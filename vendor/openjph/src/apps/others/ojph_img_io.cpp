@@ -198,7 +198,6 @@ namespace ojph {
     {
       const ui8* sp = (ui8*)temp_buf + comp_num;
 
-      printf("aaaaaa %d \n", *sp);
       si32* dp = line->i32;
       for (int i = width; i > 0; --i, sp+=num_comps)
         *dp++ = (si32)*sp;

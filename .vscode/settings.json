@@ -19,7 +19,15 @@
             "iterator": "cpp",
             "string": "cpp",
             "string_view": "cpp",
-            "vector": "cpp"
+            "vector": "cpp",
+            "__hash_table": "cpp",
+            "__split_buffer": "cpp",
+            "bitset": "cpp",
+            "deque": "cpp",
+            "hash_map": "cpp",
+            "initializer_list": "cpp",
+            "unordered_map": "cpp",
+            "list": "cpp"
       },
       "C_Cpp.errorSquiggles": "Disabled"
 }

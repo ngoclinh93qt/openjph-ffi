@@ -28,7 +28,23 @@ ojph_defs.h
 intrin.h
 -
 
+../src/core/common/ojph_arg.h
+cstdlib
+-
+cassert
+-
+cstring
+-
+ojph_defs.h
+../src/core/common/ojph_defs.h
+
 ../src/core/common/ojph_base.h
+ojph_defs.h
+../src/core/common/ojph_defs.h
+
+../src/core/common/ojph_codestream.h
+cstdlib
+-
 ojph_defs.h
 ../src/core/common/ojph_defs.h
 
@@ -64,19 +80,29 @@ cstring
 ojph_arch.h
 ../src/core/common/ojph_arch.h
 
+../src/core/common/ojph_params.h
+ojph_base.h
+../src/core/common/ojph_base.h
+
 ../src/core/common/ojph_version.h
 
-/Users/nik/lexray/openjph-ffi/vendor/openjph/src/apps/others/ojph_img_io.cpp
-cstdlib
+/Users/nik/lexray/openjph-ffi/vendor/openjph/src/apps/ojph_compress/ojph_compress.cpp
+ctime
 -
-cstring
+iostream
 -
-ojph_file.h
-/Users/nik/lexray/openjph-ffi/vendor/openjph/src/apps/others/ojph_file.h
-ojph_img_io.h
-/Users/nik/lexray/openjph-ffi/vendor/openjph/src/apps/others/ojph_img_io.h
+ojph_arg.h
+/Users/nik/lexray/openjph-ffi/vendor/openjph/src/apps/ojph_compress/ojph_arg.h
 ojph_mem.h
-/Users/nik/lexray/openjph-ffi/vendor/openjph/src/apps/others/ojph_mem.h
+/Users/nik/lexray/openjph-ffi/vendor/openjph/src/apps/ojph_compress/ojph_mem.h
+ojph_img_io.h
+/Users/nik/lexray/openjph-ffi/vendor/openjph/src/apps/ojph_compress/ojph_img_io.h
+ojph_file.h
+/Users/nik/lexray/openjph-ffi/vendor/openjph/src/apps/ojph_compress/ojph_file.h
+ojph_codestream.h
+/Users/nik/lexray/openjph-ffi/vendor/openjph/src/apps/ojph_compress/ojph_codestream.h
+ojph_params.h
+/Users/nik/lexray/openjph-ffi/vendor/openjph/src/apps/ojph_compress/ojph_params.h
 ojph_message.h
-/Users/nik/lexray/openjph-ffi/vendor/openjph/src/apps/others/ojph_message.h
+/Users/nik/lexray/openjph-ffi/vendor/openjph/src/apps/ojph_compress/ojph_message.h
 

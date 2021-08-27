@@ -1512,7 +1512,7 @@ namespace ojph {
               comps[0].get_line()->f32,
               comps[1].get_line()->f32,
               comps[2].get_line()->f32, comp_width);
-              comps[0].push_line();
+            //  comps[0].push_line();
             //  comps[1].push_line();
             //  comps[2].push_line();
           }

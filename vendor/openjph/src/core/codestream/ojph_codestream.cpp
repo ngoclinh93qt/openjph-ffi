@@ -1169,11 +1169,11 @@ namespace ojph {
         {
           success = true;
           for (int i = 0; i < num_tiles.w; ++i)
-          // {
-          //   int idx = i + cur_tile_row * num_tiles.w;
-          //   if ((success &= tiles[idx].push(line, cur_comp)) == false)
-          //     break;
-          // }
+          {
+            int idx = i + cur_tile_row * num_tiles.w;
+            if ((success & tiles[idx].push(line, cur_comp)) == false)
+              break;
+          }
           cur_tile_row += success == false ? 1 : 0;
           if (cur_tile_row >= num_tiles.h)
             cur_tile_row = 0;

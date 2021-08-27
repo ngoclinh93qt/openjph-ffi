@@ -1164,7 +1164,7 @@ namespace ojph {
     {
       if (line)
       {
-        bool success = false;
+        unsigned int success = 0;
         while (!success)
         {
           success = true;

@@ -1474,50 +1474,50 @@ namespace ojph {
         }
         comps[comp_num].push_line();
       }
-      // else
-      // {
-      //   int comp_width = comp_rects[comp_num].siz.w;
-      //   if (reversible)
-      //   {
-      //     int shift = 1 << (num_bits[comp_num] - 1);
-      //     const si32 *sp = line->i32 + line_offsets[comp_num];
-      //     si32 *dp = lines[comp_num].i32;
-      //     if (is_signed[comp_num])
-      //       memcpy(dp, sp, comp_width * sizeof(si32));
-      //     else
-      //       cnvrt_si32_to_si32_shftd(sp, dp, -shift, comp_width);
-      //     if (comp_num == 2)
-      //     { // reversible color transform
-      //       rct_forward(lines[0].i32, lines[1].i32, lines[2].i32,
-      //        comps[0].get_line()->i32,
-      //        comps[1].get_line()->i32,
-      //        comps[2].get_line()->i32, comp_width);
-      //        comps[0].push_line();
-      //        comps[1].push_line();
-      //        comps[2].push_line();
-      //     }
-      //   }
-      //   else
-      //   {
-      //     float mul = 1.0f / (float)(1<<num_bits[comp_num]);
-      //     const si32 *sp = line->i32 + line_offsets[comp_num];
-      //     float *dp = lines[comp_num].f32;
-      //     if (is_signed[comp_num])
-      //       cnvrt_si32_to_float(sp, dp, mul, comp_width);
-      //     else
-      //       cnvrt_si32_to_float_shftd(sp, dp, mul, comp_width);
-      //     if (comp_num == 2)
-      //     { // irreversible color transform
-      //       ict_forward(lines[0].f32, lines[1].f32, lines[2].f32,
-      //        comps[0].get_line()->f32,
-      //        comps[1].get_line()->f32,
-      //        comps[2].get_line()->f32, comp_width);
-      //        comps[0].push_line();
-      //        comps[1].push_line();
-      //        comps[2].push_line();
-      //     }
-      //   }
-      // }
+      else
+      {
+        int comp_width = comp_rects[comp_num].siz.w;
+        if (reversible)
+        {
+          int shift = 1 << (num_bits[comp_num] - 1);
+          const si32 *sp = line->i32 + line_offsets[comp_num];
+          si32 *dp = lines[comp_num].i32;
+          if (is_signed[comp_num])
+            memcpy(dp, sp, comp_width * sizeof(si32));
+          else
+            cnvrt_si32_to_si32_shftd(sp, dp, -shift, comp_width);
+          if (comp_num == 2)
+          { // reversible color transform
+            rct_forward(lines[0].i32, lines[1].i32, lines[2].i32,
+             comps[0].get_line()->i32,
+             comps[1].get_line()->i32,
+             comps[2].get_line()->i32, comp_width);
+             comps[0].push_line();
+             comps[1].push_line();
+             comps[2].push_line();
+          }
+        }
+        // else
+        // {
+        //   float mul = 1.0f / (float)(1<<num_bits[comp_num]);
+        //   const si32 *sp = line->i32 + line_offsets[comp_num];
+        //   float *dp = lines[comp_num].f32;
+        //   if (is_signed[comp_num])
+        //     cnvrt_si32_to_float(sp, dp, mul, comp_width);
+        //   else
+        //     cnvrt_si32_to_float_shftd(sp, dp, mul, comp_width);
+        //   if (comp_num == 2)
+        //   { // irreversible color transform
+        //     ict_forward(lines[0].f32, lines[1].f32, lines[2].f32,
+        //      comps[0].get_line()->f32,
+        //      comps[1].get_line()->f32,
+        //      comps[2].get_line()->f32, comp_width);
+        //      comps[0].push_line();
+        //      comps[1].push_line();
+        //      comps[2].push_line();
+        //   }
+        // }
+      }
 
       return true;
     }

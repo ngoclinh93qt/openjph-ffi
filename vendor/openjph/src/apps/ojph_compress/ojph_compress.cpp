@@ -746,7 +746,7 @@ int main(int argc, char * argv[]) {
           assert(c == next_comp);
           base->read(cur_line, next_comp);
           printf("ahihi %d", cur_line -> size);
-          cur_line = codestream.exchange(cur_line, next_comp);
+          //cur_line = codestream.exchange(cur_line, next_comp);
         }
       }
     }

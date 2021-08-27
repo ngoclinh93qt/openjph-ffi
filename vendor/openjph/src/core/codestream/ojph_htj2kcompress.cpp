@@ -214,6 +214,7 @@ namespace ojph {
 
         printf("compress %d %d \n", y, next_comp);
         cur_line = codestream.exchange(cur_line, next_comp);
+        printf("end compress \n");
 
 
       }

@@ -1162,51 +1162,51 @@ namespace ojph {
     //////////////////////////////////////////////////////////////////////////
     line_buf* codestream::exchange(line_buf *line, int &next_component)
     {
-      // if (line)
-      // {
-      //   bool success = false;
-      //   while (!success)
-      //   {
-      //     success = true;
-      //     for (int i = 0; i < num_tiles.w; ++i)
-      //     {
-      //       int idx = i + cur_tile_row * num_tiles.w;
-      //       if ((success &= tiles[idx].push(line, cur_comp)) == false)
-      //         break;
-      //     }
-      //     cur_tile_row += success == false ? 1 : 0;
-      //     if (cur_tile_row >= num_tiles.h)
-      //       cur_tile_row = 0;
-      //   }
+      if (line)
+      {
+        bool success = false;
+        while (!success)
+        {
+          success = true;
+          for (int i = 0; i < num_tiles.w; ++i)
+          // {
+          //   int idx = i + cur_tile_row * num_tiles.w;
+          //   if ((success &= tiles[idx].push(line, cur_comp)) == false)
+          //     break;
+          // }
+          cur_tile_row += success == false ? 1 : 0;
+          if (cur_tile_row >= num_tiles.h)
+            cur_tile_row = 0;
+        }
 
-      //   if (planar) //process one component at a time
-      //   {
-      //     if (++cur_line >= comp_size[cur_comp].h)
-      //     {
-      //       cur_line = 0;
-      //       cur_tile_row = 0;
-      //       if (++cur_comp >= num_comps)
-      //       {
-      //         next_component = INT_MIN;
-      //         return NULL;
-      //       }
-      //     }
-      //   }
-      //   else //process all component for a line
-      //   {
-      //     if (++cur_comp >= num_comps)
-      //     {
-      //       cur_comp = 0;
-      //       if (++cur_line >= comp_size[cur_comp].h)
-      //       {
-      //         next_component = INT_MIN;
-      //         return NULL;
-      //       }
-      //     }
-      //   }
-      // }
+        if (planar) //process one component at a time
+        {
+          if (++cur_line >= comp_size[cur_comp].h)
+          {
+            cur_line = 0;
+            cur_tile_row = 0;
+            if (++cur_comp >= num_comps)
+            {
+              next_component = INT_MIN;
+              return NULL;
+            }
+          }
+        }
+        else //process all component for a line
+        {
+          if (++cur_comp >= num_comps)
+          {
+            cur_comp = 0;
+            if (++cur_line >= comp_size[cur_comp].h)
+            {
+              next_component = INT_MIN;
+              return NULL;
+            }
+          }
+        }
+      }
 
-      // next_component = cur_comp;
+      next_component = cur_comp;
       return this->line;
     }
 

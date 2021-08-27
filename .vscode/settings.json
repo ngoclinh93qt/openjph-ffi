@@ -11,6 +11,8 @@
             "__functional_03": "cpp",
             "fstream": "cpp",
             "functional": "cpp",
-            "locale": "cpp"
+            "locale": "cpp",
+            "atomic": "cpp",
+            "utility": "cpp"
       }
 }

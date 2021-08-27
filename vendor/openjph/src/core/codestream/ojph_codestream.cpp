@@ -1485,7 +1485,7 @@ namespace ojph {
           if (is_signed[comp_num])
             memcpy(dp, sp, comp_width * sizeof(si32));
           else
-            cnvrt_si32_to_si32_shftd(sp, dp, -shift, comp_width);
+           // cnvrt_si32_to_si32_shftd(sp, dp, -shift, comp_width);
           if (comp_num == 2)
           { // reversible color transform
             rct_forward(lines[0].i32, lines[1].i32, lines[2].i32,

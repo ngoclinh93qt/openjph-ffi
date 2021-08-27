@@ -1160,7 +1160,7 @@ namespace ojph {
     }
 
     //////////////////////////////////////////////////////////////////////////
-    line_buf* codestream::exchange(line_buf *line, int &next_component) __attribute__ ((optimize(0)))
+    line_buf* codestream::exchange(line_buf *line, int &next_component)
     {
       if (line)
       {
@@ -1171,8 +1171,6 @@ namespace ojph {
           for (int i = 0; i < num_tiles.w; ++i)
           {
             int idx = i + cur_tile_row * num_tiles.w;
-            // tiles[idx].push(line, cur_comp);
-            // success = true;
             // if ((success &= tiles[idx].push(line, cur_comp)) == false)
             //   break;
           }

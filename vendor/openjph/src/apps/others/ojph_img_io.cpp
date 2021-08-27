@@ -197,6 +197,8 @@ namespace ojph {
     if (bytes_per_sample == 1)
     {
       const ui8* sp = (ui8*)temp_buf + comp_num;
+
+      printf("aaaaaa %d \n", *sp);
       si32* dp = line->i32;
       for (int i = width; i > 0; --i, sp+=num_comps)
         *dp++ = (si32)*sp;
@@ -205,6 +207,8 @@ namespace ojph {
     {
 
       const ui16* sp = (ui16*)temp_buf + comp_num;
+
+      //printf("xxxxxxx %d", *sp);
       si32* dp = line->i32;
       for (int i = width; i > 0; --i, sp+=num_comps)
         *dp++ = (si32)be2le(*sp);

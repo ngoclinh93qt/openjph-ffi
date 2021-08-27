@@ -57,9 +57,9 @@ CONFIGURE_FILE(
 )
 
 if (OJPH_DISABLE_INTEL_SIMD)
-    add_library(openjph STATIC ${SOURCES})
+    add_library(openjph ${SOURCES})
 else()
-    add_library(openjph STATIC ${SOURCES} ${SSE_SOURCES} ${SSE2_SOURCES} ${AVX_SOURCES} ${AVX2_SOURCES})
+    add_library(openjph ${SOURCES} ${SSE_SOURCES} ${SSE2_SOURCES} ${AVX_SOURCES} ${AVX2_SOURCES})
 endif()
 
 target_include_directories(openjph PUBLIC src/core/common)

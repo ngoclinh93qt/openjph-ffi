@@ -11,7 +11,7 @@ use std::fs::*;
 
 fn poke() {
       unsafe {
-            let img = image::open("./tests/lab.jpg").unwrap();
+            let img = image::open("./tests/labe.ppm").unwrap();
             let width = img.width();
             let dimentsion = img.dimensions();
 

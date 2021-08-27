@@ -16,17 +16,18 @@ namespace ojph {
 
 
 
-  int read(const line_buf* line, const uint8_t* data, int width, int row, int column) {
+  int read(const line_buf* line, const ui8* data, int width, int row, int column) {
     int index = 3 * width * row;
-    const uint8_t* temp_buf = &data[index];
+    const ui8* temp_buf = &data[index];
     const ui8* sp = (ui8*)temp_buf + column;
+    printf("xxxxx %d \n", *sp);
     si32* dp = line->i32;
     for (int i = width; i > 0; --i, sp += 3)
       *dp++ = (si32)*sp;
     return width;
   }
 
-  output_data  htj2kcompress::encodefullquality(const uint8_t* data, size_t width, size_t height) {
+  output_data  htj2kcompress::encodefullquality(const ui8* data, size_t width, size_t height) {
 
     ojph::codestream codestream;
     ojph::param_siz siz = codestream.access_siz();
@@ -96,7 +97,7 @@ namespace ojph {
     return out;
   }
 
-  output_data  htj2kcompress::encodewithqualityrate(const uint8_t* data, size_t width, size_t height, float_t rate) {
+  output_data  htj2kcompress::encodewithqualityrate(const ui8* data, size_t width, size_t height, float_t rate) {
 
    ojph::codestream codestream;
     ojph::param_siz siz = codestream.access_siz();
@@ -168,7 +169,7 @@ namespace ojph {
     return out;
   }
 
-  const ui8* htj2kcompress::encodedao(const uint8_t* data, size_t width, size_t height, bool isSigned) {
+  const ui8* htj2kcompress::encodedao(const ui8* data, size_t width, size_t height, bool isSigned) {
 
     ojph::codestream codestream;
     ojph::param_siz siz = codestream.access_siz();
@@ -212,9 +213,9 @@ namespace ojph {
 
         read(cur_line, data, width, y, next_comp);
 
-        printf("compress %d %d \n", y, next_comp);
+      //  printf("compress %d %d \n", data, next_comp);
         cur_line = codestream.exchange(cur_line, next_comp);
-        printf("end compress \n");
+       // printf("end compress \n");
 
 
       }
@@ -234,7 +235,7 @@ namespace ojph {
 
 
 
-  mem_outfile htj2kcompress::encode(const uint8_t* data, size_t width, size_t height, bool isSigned)
+  mem_outfile htj2kcompress::encode(const ui8* data, size_t width, size_t height, bool isSigned)
 
   {
     ojph::codestream codestream;

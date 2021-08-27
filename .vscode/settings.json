@@ -14,7 +14,12 @@
             "locale": "cpp",
             "atomic": "cpp",
             "utility": "cpp",
-            "stack": "cpp"
+            "stack": "cpp",
+            "array": "cpp",
+            "iterator": "cpp",
+            "string": "cpp",
+            "string_view": "cpp",
+            "vector": "cpp"
       },
       "C_Cpp.errorSquiggles": "Disabled"
 }

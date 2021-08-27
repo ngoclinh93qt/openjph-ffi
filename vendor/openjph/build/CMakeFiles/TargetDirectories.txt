@@ -1,0 +1,9 @@
+/Users/nik/lexray/openjph-ffi/vendor/openjph/build/CMakeFiles/install/local.dir
+/Users/nik/lexray/openjph-ffi/vendor/openjph/build/CMakeFiles/list_install_components.dir
+/Users/nik/lexray/openjph-ffi/vendor/openjph/build/CMakeFiles/ojph_compress.dir
+/Users/nik/lexray/openjph-ffi/vendor/openjph/build/CMakeFiles/install/strip.dir
+/Users/nik/lexray/openjph-ffi/vendor/openjph/build/CMakeFiles/install.dir
+/Users/nik/lexray/openjph-ffi/vendor/openjph/build/CMakeFiles/openjph.dir
+/Users/nik/lexray/openjph-ffi/vendor/openjph/build/CMakeFiles/ojph_expand.dir
+/Users/nik/lexray/openjph-ffi/vendor/openjph/build/CMakeFiles/rebuild_cache.dir
+/Users/nik/lexray/openjph-ffi/vendor/openjph/build/CMakeFiles/edit_cache.dir

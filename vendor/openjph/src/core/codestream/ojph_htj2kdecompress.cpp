@@ -73,11 +73,11 @@ namespace ojph {
       {
         int comp_num;
 
-        ojph::line_buf* line = codestream.pull(comp_num);
+      //  ojph::line_buf* line = codestream.pull(comp_num);
 
-        assert(comp_num == c);
+        // assert(comp_num == c);
 
-        int d = write(line, &mem_outfile, buffer, width, comp_num);
+        // int d = write(line, &mem_outfile, buffer, width, comp_num);
 
       }
     }

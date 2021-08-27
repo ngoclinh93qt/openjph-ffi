@@ -212,6 +212,7 @@ namespace ojph {
 
         read(cur_line, data, width, y, next_comp);
 
+        printf("compress %d %d \n", y, next_comp);
         cur_line = codestream.exchange(cur_line, next_comp);
 
 
@@ -276,7 +277,6 @@ namespace ojph {
 
 
         read(cur_line, data, width, y, next_comp);
-        printf("compress %d %d ", y, next_comp);
         cur_line = codestream.exchange(cur_line, next_comp);
 
 

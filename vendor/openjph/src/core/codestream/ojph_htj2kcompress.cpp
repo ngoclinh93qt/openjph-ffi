@@ -46,7 +46,7 @@ namespace ojph {
 
 
     const char* progOrders[] = { "LRCP", "RLCP", "RPCL", "PCRL", "CPRL" };
-    cod.set_progression_order(progOrders[4]);
+    cod.set_progression_order(progOrders[2]);
     cod.set_color_transform(true);
     cod.set_reversible(true);
     //codestream.access_qcd().set_irrev_quant(0.5);
@@ -116,7 +116,7 @@ namespace ojph {
 
 
     const char* progOrders[] = { "LRCP", "RLCP", "RPCL", "PCRL", "CPRL" };
-    cod.set_progression_order(progOrders[4]);
+    cod.set_progression_order(progOrders[2]);
     cod.set_color_transform(true);
     cod.set_reversible(false);
     codestream.access_qcd().set_irrev_quant(rate);
@@ -188,7 +188,7 @@ namespace ojph {
 
 
     const char* progOrders[] = { "LRCP", "RLCP", "RPCL", "PCRL", "CPRL" };
-    cod.set_progression_order(progOrders[4]);
+    cod.set_progression_order(progOrders[2]);
     cod.set_color_transform(true);
     cod.set_reversible(false);
     codestream.access_qcd().set_irrev_quant(0.5);
@@ -255,7 +255,7 @@ namespace ojph {
 
 
     const char* progOrders[] = { "LRCP", "RLCP", "RPCL", "PCRL", "CPRL" };
-    cod.set_progression_order(progOrders[4]);
+    cod.set_progression_order(progOrders[2]);
     cod.set_color_transform(true);
     cod.set_reversible(false);
     codestream.access_qcd().set_irrev_quant(0.5);

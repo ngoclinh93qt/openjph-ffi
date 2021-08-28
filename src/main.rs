@@ -23,7 +23,7 @@ fn poke() {
             let now = Instant::now();
 
             let mut d = ojph_htj2kcompress{_address:1};
-            let out = d.encodedao(data.as_mut_ptr(), dimentsion.0 as usize, dimentsion.1 as usize,  false);
+            let out = d.encodedao(data.as_mut_ptr(), dimentsion.0 as i32, dimentsion.1 as i32 );
 
             let elapase = now.elapsed();
             println!("{}",elapase.as_millis());

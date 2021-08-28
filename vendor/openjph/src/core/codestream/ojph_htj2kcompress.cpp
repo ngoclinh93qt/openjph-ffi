@@ -27,7 +27,7 @@ namespace ojph {
     return width;
   }
 
-  output_data  htj2kcompress::encodefullquality(const ui8* data, size_t width, size_t height) {
+  output_data  htj2kcompress::encodefullquality(const ui8* data, int width, int height) {
 
     ojph::codestream codestream;
     ojph::param_siz siz = codestream.access_siz();
@@ -61,9 +61,9 @@ namespace ojph {
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
 
 
-    for (size_t y = 0; y < height; y++)
+    for (int y = 0; y < height; y++)
     {
-      for (size_t c = 0; c < siz.get_num_components(); c++)
+      for (int c = 0; c < siz.get_num_components(); c++)
       {
 
         assert(c == next_comp);
@@ -97,9 +97,9 @@ namespace ojph {
     return out;
   }
 
-  output_data  htj2kcompress::encodewithqualityrate(const ui8* data, size_t width, size_t height, float_t rate) {
+  output_data  htj2kcompress::encodewithqualityrate(const ui8* data, int width, int height, float rate) {
 
-   ojph::codestream codestream;
+    ojph::codestream codestream;
     ojph::param_siz siz = codestream.access_siz();
     siz.set_image_extent(ojph::point(width, height));
     int num_comps = 3;
@@ -131,9 +131,9 @@ namespace ojph {
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
 
 
-    for (size_t y = 0; y < height; y++)
+    for (int y = 0; y < height; y++)
     {
-      for (size_t c = 0; c < siz.get_num_components(); c++)
+      for (int c = 0; c < siz.get_num_components(); c++)
       {
 
         assert(c == next_comp);
@@ -158,7 +158,7 @@ namespace ojph {
     si64 file_size = output.get_size();
 
     ui8* outbf = (ui8*)malloc(file_size);
-    memcpy(outbf, output.get_data(), file_size);
+    memcpy(outbf, output.get_data(), (size_t)file_size);
     output.flush();
     output.close();
     output_data out;
@@ -169,7 +169,7 @@ namespace ojph {
     return out;
   }
 
-  const ui8* htj2kcompress::encodedao(const ui8* data, size_t width, size_t height, bool isSigned) {
+  const ui8* htj2kcompress::encodedao(const ui8* data, int  width, int height) {
 
     ojph::codestream codestream;
     ojph::param_siz siz = codestream.access_siz();
@@ -203,9 +203,9 @@ namespace ojph {
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
 
 
-    for (size_t y = 0; y < height; y++)
+    for (int y = 0; y < height; y++)
     {
-      for (size_t c = 0; c < siz.get_num_components(); c++)
+      for (int c = 0; c < siz.get_num_components(); c++)
       {
 
         assert(c == next_comp);
@@ -215,7 +215,7 @@ namespace ojph {
         int x = cur_line->size;
         printf("compress %d \n", x);
         cur_line = codestream.exchange(cur_line, next_comp);
-       // printf("end compress \n");
+        // printf("end compress \n");
 
 
       }
@@ -235,7 +235,7 @@ namespace ojph {
 
 
 
-  mem_outfile htj2kcompress::encode(const ui8* data, size_t width, size_t height, bool isSigned)
+  mem_outfile htj2kcompress::encode(const ui8* data, int width, int height)
 
   {
     ojph::codestream codestream;
@@ -270,9 +270,9 @@ namespace ojph {
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
 
 
-    for (size_t y = 0; y < height; y++)
+    for (int y = 0; y < height; y++)
     {
-      for (size_t c = 0; c < siz.get_num_components(); c++)
+      for (int c = 0; c < siz.get_num_components(); c++)
       {
 
         assert(c == next_comp);

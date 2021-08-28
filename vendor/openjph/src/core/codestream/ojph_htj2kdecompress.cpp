@@ -67,7 +67,7 @@ namespace ojph {
 
     mem_outfile.write(g, header_len);
 
-    for (int i = 0; i < height; ++i)
+    for (int i = 0; i < (int)height; ++i)
     {
       for (int c = 0; c < siz.get_num_components(); ++c)
       {

@@ -2,7 +2,6 @@
 use std::os::raw::*;
 pub type size_t = usize;
 use libc::FILE;
-pub type float_t = f32;
 ///
 pub type ojph_ui8 = u8;
 pub type ojph_si8 = i8;
@@ -1032,42 +1031,40 @@ pub struct ojph_htj2kcompress {
     pub _address: u8,
 }
 extern "C" {
-    #[link_name = "\u{1}__ZN4ojph13htj2kcompress6encodeEPKhmmb"]
+    #[link_name = "\u{1}__ZN4ojph13htj2kcompress6encodeEPKhii"]
     pub fn ojph_htj2kcompress_encode(
         this: *mut ojph_htj2kcompress,
         data: *const u8,
-        width: size_t,
-        height: size_t,
-        isSigned: bool,
+        width: c_int,
+        height: c_int,
     ) -> ojph_mem_outfile;
 }
 extern "C" {
-    #[link_name = "\u{1}__ZN4ojph13htj2kcompress9encodedaoEPKhmmb"]
+    #[link_name = "\u{1}__ZN4ojph13htj2kcompress9encodedaoEPKhii"]
     pub fn ojph_htj2kcompress_encodedao(
         this: *mut ojph_htj2kcompress,
         data: *const u8,
-        width: size_t,
-        height: size_t,
-        isSigned: bool,
+        width: c_int,
+        height: c_int,
     ) -> *const ojph_ui8;
 }
 extern "C" {
-    #[link_name = "\u{1}__ZN4ojph13htj2kcompress17encodefullqualityEPKhmm"]
+    #[link_name = "\u{1}__ZN4ojph13htj2kcompress17encodefullqualityEPKhii"]
     pub fn ojph_htj2kcompress_encodefullquality(
         this: *mut ojph_htj2kcompress,
         data: *const u8,
-        width: size_t,
-        height: size_t,
+        width: c_int,
+        height: c_int,
     ) -> ojph_output_data;
 }
 extern "C" {
-    #[link_name = "\u{1}__ZN4ojph13htj2kcompress21encodewithqualityrateEPKhmmf"]
+    #[link_name = "\u{1}__ZN4ojph13htj2kcompress21encodewithqualityrateEPKhiif"]
     pub fn ojph_htj2kcompress_encodewithqualityrate(
         this: *mut ojph_htj2kcompress,
         data: *const u8,
-        width: size_t,
-        height: size_t,
-        rate: float_t,
+        width: c_int,
+        height: c_int,
+        rate: f32,
     ) -> ojph_output_data;
 }
 impl ojph_htj2kcompress {
@@ -1075,28 +1072,26 @@ impl ojph_htj2kcompress {
     pub unsafe fn encode(
         &mut self,
         data: *const u8,
-        width: size_t,
-        height: size_t,
-        isSigned: bool,
+        width: c_int,
+        height: c_int,
     ) -> ojph_mem_outfile {
-        ojph_htj2kcompress_encode(self, data, width, height, isSigned)
+        ojph_htj2kcompress_encode(self, data, width, height)
     }
     #[inline]
     pub unsafe fn encodedao(
         &mut self,
         data: *const u8,
-        width: size_t,
-        height: size_t,
-        isSigned: bool,
+        width: c_int,
+        height: c_int,
     ) -> *const ojph_ui8 {
-        ojph_htj2kcompress_encodedao(self, data, width, height, isSigned)
+        ojph_htj2kcompress_encodedao(self, data, width, height)
     }
     #[inline]
     pub unsafe fn encodefullquality(
         &mut self,
         data: *const u8,
-        width: size_t,
-        height: size_t,
+        width: c_int,
+        height: c_int,
     ) -> ojph_output_data {
         ojph_htj2kcompress_encodefullquality(self, data, width, height)
     }
@@ -1104,9 +1099,9 @@ impl ojph_htj2kcompress {
     pub unsafe fn encodewithqualityrate(
         &mut self,
         data: *const u8,
-        width: size_t,
-        height: size_t,
-        rate: float_t,
+        width: c_int,
+        height: c_int,
+        rate: f32,
     ) -> ojph_output_data {
         ojph_htj2kcompress_encodewithqualityrate(self, data, width, height, rate)
     }

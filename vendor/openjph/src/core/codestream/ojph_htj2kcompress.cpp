@@ -56,7 +56,6 @@ namespace ojph {
     codestream.write_headers(&output);
 
 
-    const size_t bytesPerPixel = 3;
     int next_comp;
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
 
@@ -126,7 +125,6 @@ namespace ojph {
     codestream.write_headers(&output);
 
 
-    const size_t bytesPerPixel = 3;
     int next_comp;
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
 
@@ -198,7 +196,6 @@ namespace ojph {
     codestream.write_headers(&output);
 
 
-    const size_t bytesPerPixel = 3;
     int next_comp;
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
 
@@ -263,7 +260,6 @@ namespace ojph {
     codestream.write_headers(&output);
 
 
-    const size_t bytesPerPixel = 3;
     int next_comp;
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
 

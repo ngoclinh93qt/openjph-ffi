@@ -35,7 +35,7 @@ namespace ojph {
     if (comp_num == 2)
     {
 
-      size_t s = outfile->write(buffer, 3 * (size_t)width);
+       outfile->write(buffer, 3 * (size_t)width);
 
     }
 

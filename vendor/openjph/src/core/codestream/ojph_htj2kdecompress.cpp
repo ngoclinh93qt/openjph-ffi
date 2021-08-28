@@ -71,7 +71,7 @@ namespace ojph {
     {
       for (int c = 0; c < siz.get_num_components(); ++c)
       {
-        int comp_num;
+       // int comp_num;
 
       //  ojph::line_buf* line = codestream.pull(comp_num);
 

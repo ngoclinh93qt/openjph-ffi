@@ -1500,19 +1500,24 @@ namespace ojph {
         }
         else
         {
+           printf("here \n");
 
           float mul = 1.0f / (float)(1<<num_bits[comp_num]);
           const si32 *sp = line->i32 + line_offsets[comp_num];
           float *dp = lines[comp_num].f32;
-          if (is_signed[comp_num])
+          if (is_signed[comp_num]) {
+                       printf("here1 \n");
+
             cnvrt_si32_to_float(sp, dp, mul, comp_width);
-          else
+            }
+          else {
+           printf("here2 \n");
 
              cnvrt_si32_to_float_shftd(sp, dp, mul, comp_width);
+             }
           if (comp_num == 2)
 
           { // irreversible color transform
-                         printf("there \n");
 
              ict_forward(lines[0].f32, lines[1].f32, lines[2].f32,
               comps[0].get_line()->f32,

@@ -20,7 +20,7 @@ namespace ojph {
     int index = 3 * width * row;
     const ui8* temp_buf = &data[index];
     const ui8* sp = (ui8*)temp_buf + column;
-    printf("xxxxx %d \n", *sp);
+
     si32* dp = line->i32;
     for (int i = width; i > 0; --i, sp += 3)
       *dp++ = (si32)*sp;

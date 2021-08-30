@@ -1509,9 +1509,7 @@ namespace ojph {
             cnvrt_si32_to_float(sp, dp, mul, comp_width);
             
           else {
-            printf("di\n");
              cnvrt_si32_to_float_shftd(sp, dp, mul, comp_width);
-                      printf("dai\n");
 
           }
           if (comp_num == 2)

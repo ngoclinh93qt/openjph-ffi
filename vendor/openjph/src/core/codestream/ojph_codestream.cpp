@@ -1444,12 +1444,13 @@ namespace ojph {
 
       //converts to signed representation
       //employs color transform if there is a need
+
       if (!employ_color_transform || comp_num >= 3)
       {
+
         assert(comp_num < num_comps);
         int comp_width = comp_rects[comp_num].siz.w;
         line_buf *tc = comps[comp_num].get_line();
-        printf("hello \n");
 
         if (reversible)
         {
@@ -1466,7 +1467,6 @@ namespace ojph {
           float mul = 1.0f / (float)(1<<num_bits[comp_num]);
           const si32 *sp = line->i32 + line_offsets[comp_num];
           float *dp = tc->f32;
-          printf("daocuong");
           if (is_signed[comp_num])
             cnvrt_si32_to_float(sp, dp, mul, comp_width);
           else
@@ -1476,6 +1476,7 @@ namespace ojph {
       }
       else
       {
+
         int comp_width = comp_rects[comp_num].siz.w;
         if (reversible)
         {
@@ -1499,15 +1500,21 @@ namespace ojph {
         }
         else
         {
+
           float mul = 1.0f / (float)(1<<num_bits[comp_num]);
           const si32 *sp = line->i32 + line_offsets[comp_num];
           float *dp = lines[comp_num].f32;
           if (is_signed[comp_num])
             cnvrt_si32_to_float(sp, dp, mul, comp_width);
           else
+            printf("here \n");
+
              cnvrt_si32_to_float_shftd(sp, dp, mul, comp_width);
           if (comp_num == 2)
+
           { // irreversible color transform
+                         printf("there \n");
+
              ict_forward(lines[0].f32, lines[1].f32, lines[2].f32,
               comps[0].get_line()->f32,
               comps[1].get_line()->f32,

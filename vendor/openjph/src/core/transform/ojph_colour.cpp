@@ -182,6 +182,8 @@ namespace ojph {
     void gen_cnvrt_si32_to_float_shftd(const si32 *sp, float *dp, float mul,
                                        int width)
     {
+                     printf("du \n");
+
       for (int i = width; i > 0; --i) {
                printf("du \n");
 

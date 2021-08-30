@@ -56,10 +56,10 @@ namespace ojph {
                                        int width)
     {
       __m256 shift = _mm256_set1_ps(0.5f);
-                                    printf("err %d\n",mul);
-
+                                    printf("err sp %d dp % mul %d width %d\n",sp,dp,mul,width);
       __m256 m = _mm256_set1_ps(mul);
                               printf("here\n");
+      abort();
 
       for (int i = (width + 7) >> 3; i > 0; --i, sp+=8, dp+=8)
       {

@@ -56,6 +56,8 @@ namespace ojph {
                                        int width)
     {
       __m256 shift = _mm256_set1_ps(0.5f);
+                                    printf("err\n");
+
       __m256 m = _mm256_set1_ps(mul);
                               printf("here\n");
 

@@ -1449,6 +1449,8 @@ namespace ojph {
         assert(comp_num < num_comps);
         int comp_width = comp_rects[comp_num].siz.w;
         line_buf *tc = comps[comp_num].get_line();
+        printf("hello \n");
+
         if (reversible)
         {
           int shift = 1 << (num_bits[comp_num] - 1);

@@ -1464,6 +1464,7 @@ namespace ojph {
           float mul = 1.0f / (float)(1<<num_bits[comp_num]);
           const si32 *sp = line->i32 + line_offsets[comp_num];
           float *dp = tc->f32;
+          printf("daocuong");
           if (is_signed[comp_num])
             cnvrt_si32_to_float(sp, dp, mul, comp_width);
           else

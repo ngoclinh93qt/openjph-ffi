@@ -1507,7 +1507,6 @@ namespace ojph {
           if (is_signed[comp_num])
             cnvrt_si32_to_float(sp, dp, mul, comp_width);
           else
-            printf("here \n");
 
              cnvrt_si32_to_float_shftd(sp, dp, mul, comp_width);
           if (comp_num == 2)

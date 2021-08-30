@@ -183,10 +183,13 @@ namespace ojph {
                                        int width)
     {
       for (int i = width; i > 0; --i) {
+               printf("du \n");
+
         *dp++ = (float)*sp++ * mul - 0.5f;
       }
 
-      
+       printf("test \n");
+
 
     }
 

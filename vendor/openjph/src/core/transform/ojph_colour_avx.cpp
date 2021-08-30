@@ -59,7 +59,6 @@ namespace ojph {
                                     printf("err sp  dp  mul %d width %d\n",sp,dp);
       __m256 m = _mm256_set1_ps(mul);
                               printf("here\n");
-      abort();
 
       for (int i = (width + 7) >> 3; i > 0; --i, sp+=8, dp+=8)
       {

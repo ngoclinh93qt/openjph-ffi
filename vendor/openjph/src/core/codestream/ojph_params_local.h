@@ -443,14 +443,12 @@ namespace ojph {
         num_decomps = cod.get_num_decompositions();
         if (cod.is_reversible())
         {
-                  printf("check_validity\n");
 
           int bit_depth = 0;
           for (int i = 0; i < siz.get_num_components(); ++i)
             bit_depth = ojph_max(bit_depth, siz.get_bit_depth(i));
 
           set_rev_quant(bit_depth, cod.is_employing_color_transform());
-        printf("check_validity\n");
 
         }
         else

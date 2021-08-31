@@ -196,19 +196,16 @@ namespace ojph {
 
     cod.set_color_transform(true);
 
-    cod.set_reversible(true);
+    cod.set_reversible(false);
 
-  //  codestream.access_qcd().set_irrev_quant(0.5);
+   codestream.access_qcd().set_irrev_quant(0.5);
     mem_outfile output;
 
     output.open();
-                            printf("REDDD6\n");
 
     codestream.set_planar(false);
-                        printf("REDDD6\n");
 
     codestream.write_headers(&output);
-                        printf("REDDD6\n");
 
 
     int next_comp;
@@ -223,10 +220,8 @@ namespace ojph {
 
         assert(c == next_comp);
 
-        printf("RED\n");
 
         read(cur_line, data, width, y, next_comp);
-                printf("REDq\n");
 
         cur_line = codestream.exchange(cur_line, next_comp);
 

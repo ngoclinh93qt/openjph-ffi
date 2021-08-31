@@ -35,7 +35,7 @@ fn main() {
     cc.flag("-std=c++11");
    // cc.flag("-DOJPH_DISABLE_INTEL_SIMD");
     cc.flag("-mavx");
-    //cc.flag("-mavx2");
+    cc.flag("-mavx2");
    cc.flag("-fexceptions");
     cc.flag("-Wall");
     cc.flag("-Wextra");

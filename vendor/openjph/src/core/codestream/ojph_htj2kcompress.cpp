@@ -28,6 +28,7 @@ namespace ojph {
   }
 
   output_data  htj2kcompress::encodefullquality(const ui8* data, int width, int height) {
+        printf("ererere\n");
 
     ojph::codestream codestream;
     ojph::param_siz siz = codestream.access_siz();
@@ -58,6 +59,7 @@ namespace ojph {
 
     int next_comp;
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
+        printf("ererere\n");
 
 
     for (int y = 0; y < height; y++)

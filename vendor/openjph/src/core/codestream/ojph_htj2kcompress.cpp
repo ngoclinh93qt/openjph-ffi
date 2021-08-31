@@ -196,6 +196,8 @@ namespace ojph {
 
 
     int next_comp;
+            printf("REDDD\n");
+
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
 
 

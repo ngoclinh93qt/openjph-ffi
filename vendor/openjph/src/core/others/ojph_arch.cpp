@@ -170,6 +170,7 @@ namespace ojph {
   int cpu_ext_level()
   {
     assert(cpu_level_initialized);
+    printf("CPU LEVEL %d\n",cpu_level);
     return cpu_level;
   }
 

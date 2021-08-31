@@ -21,9 +21,13 @@ fn poke() {
             //let mut bytes = std::fs::read("./tests/labe.ppm").expect("no file found");
 
             let now = Instant::now();
+            println!("eeeererere");
 
             let mut d = ojph_htj2kcompress{_address:1};
+            println!("ererer");
+
             let _out = d.encodedao(data.as_mut_ptr(), dimentsion.0 as i32, dimentsion.1 as i32 );
+            println!("ererrrr1111er");
 
             let elapase = now.elapsed();
             println!("{}",elapase.as_millis());

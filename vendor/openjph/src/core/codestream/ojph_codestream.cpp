@@ -1159,6 +1159,7 @@ namespace ojph {
     //////////////////////////////////////////////////////////////////////////
     line_buf* codestream::exchange(line_buf *line, int &next_component)
     {
+      printf("MMM\n");
       if (line)
       {
         bool success = false;

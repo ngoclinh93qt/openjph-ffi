@@ -350,7 +350,11 @@ namespace ojph {
   //////////////////////////////////////////////////////////////////////////
   void param_qcd::set_irrev_quant(float delta)
   {
+                        printf("set_irrev_quant\n");
+
     state->set_delta(delta);
+                            printf("set_irrev_quant\n");
+
   }
 
   //////////////////////////////////////////////////////////////////////////

@@ -193,13 +193,10 @@ namespace ojph {
 
     const char* progOrders[] = { "LRCP", "RLCP", "RPCL", "PCRL", "CPRL" };
     cod.set_progression_order(progOrders[2]);
-                        printf("REDDD4\n");
 
     cod.set_color_transform(true);
-                        printf("REDDD3\n");
 
     cod.set_reversible(false);
-                        printf("REDDD1\n");
 
     codestream.access_qcd().set_irrev_quant(0.5);
     mem_outfile output;

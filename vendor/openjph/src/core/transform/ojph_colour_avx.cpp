@@ -55,6 +55,7 @@ namespace ojph {
     void avx_cnvrt_si32_to_float_shftd(const si32 *sp, float *dp, float mul,
                                        int width)
     {
+      printf("avx_cnvrt_si32_to_float_shftd\n");
       __m256 shift = _mm256_set1_ps(0.5f);
       __m256 m = _mm256_set1_ps(mul);
 

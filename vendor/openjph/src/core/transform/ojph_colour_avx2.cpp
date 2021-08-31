@@ -54,6 +54,8 @@ namespace ojph {
     void avx2_cnvrt_si32_to_si32_shftd(const si32 *sp, si32 *dp, int shift,
                                        int width)
     {
+                  printf("avx2_cnvrt_si32_to_float_shftd \n");
+
       __m256i sh = _mm256_set1_epi32(shift);
       for (int i = (width + 7) >> 3; i > 0; --i, sp+=8, dp+=8)
       {

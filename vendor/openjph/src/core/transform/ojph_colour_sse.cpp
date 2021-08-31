@@ -55,6 +55,7 @@ namespace ojph {
     void sse_cnvrt_si32_to_float_shftd(const si32 *sp, float *dp, float mul,
                                        int width)
     {
+      printf("sse_cnvrt_si32_to_float_shftd \n");
       __m128 shift = _mm_set1_ps(0.5f);
       __m128 m = _mm_set1_ps(mul);
       for (int i = (width + 3) >> 2; i > 0; --i, sp+=4, dp+=4)

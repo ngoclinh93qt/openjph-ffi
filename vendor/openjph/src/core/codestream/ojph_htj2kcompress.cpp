@@ -167,6 +167,7 @@ namespace ojph {
   }
 
   const ui8* htj2kcompress::encodedao(const ui8* data, int  width, int height) {
+            printf("REDDD\n");
 
     ojph::codestream codestream;
     ojph::param_siz siz = codestream.access_siz();
@@ -196,7 +197,6 @@ namespace ojph {
 
 
     int next_comp;
-            printf("REDDD\n");
 
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
 

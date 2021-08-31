@@ -693,17 +693,13 @@ namespace ojph {
     //////////////////////////////////////////////////////////////////////////
     void codestream::write_headers(outfile_base *file)
     {
-                              printf("write_headers\n");
 
       //finalize
       siz.check_validity();
-                                          printf("write_headers\n");
 
       cod.check_validity(siz);
-                                          printf("write_headers\n");
 
       qcd.check_validity(siz, cod);
-                                          printf("write_headers\n");
 
       cap.check_validity(cod, qcd);
 

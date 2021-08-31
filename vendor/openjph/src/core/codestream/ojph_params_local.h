@@ -439,9 +439,13 @@ namespace ojph {
 
       void check_validity(const param_siz& siz, const param_cod& cod)
       {
+        printf("check_validity\n");
+
         num_decomps = cod.get_num_decompositions();
         if (cod.is_reversible())
         {
+                  printf("check_validity\n");
+
           int bit_depth = 0;
           for (int i = 0; i < siz.get_num_components(); ++i)
             bit_depth = ojph_max(bit_depth, siz.get_bit_depth(i));

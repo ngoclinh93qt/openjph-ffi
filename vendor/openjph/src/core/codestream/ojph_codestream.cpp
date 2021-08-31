@@ -1505,11 +1505,11 @@ namespace ojph {
           const si32 *sp = line->i32 + line_offsets[comp_num];
           float *dp = lines[comp_num].f32;
           printf("hloo\n");
-          if (is_signed[comp_num]) 
+          if (is_signed[comp_num]) {
                       printf("hloo1\n");
 
             cnvrt_si32_to_float(sp, dp, mul, comp_width);
-            
+          }
           else {
                       printf("hloo2\n");
 

@@ -206,8 +206,11 @@ namespace ojph {
 
         assert(c == next_comp);
 
+        printf("RED\n");
 
         read(cur_line, data, width, y, next_comp);
+                printf("REDq\n");
+
         cur_line = codestream.exchange(cur_line, next_comp);
 
 

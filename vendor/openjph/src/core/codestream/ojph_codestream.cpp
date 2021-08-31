@@ -697,16 +697,20 @@ namespace ojph {
 
       //finalize
       siz.check_validity();
+                                          printf("write_headers\n");
+
       cod.check_validity(siz);
+                                          printf("write_headers\n");
+
       qcd.check_validity(siz, cod);
+                                          printf("write_headers\n");
+
       cap.check_validity(cod, qcd);
-                                    printf("write_headers\n");
 
       if (profile == OJPH_PN_IMF)
         check_imf_validity();
       else if (profile == OJPH_PN_BROADCAST)
         check_broadcast_validity();
-                              printf("write_headers\n");
 
       if (planar == -1) //not initialized
         planar = cod.is_employing_color_transform() ? 1 : 0;
@@ -727,7 +731,6 @@ namespace ojph {
       this->outfile = file;
       this->pre_alloc();
       this->finalize_alloc();
-                              printf("write_headers\n");
 
       ui16 t = swap_byte(JP2K_MARKER::SOC);
       if (file->write(&t, 2) != 2)

@@ -189,7 +189,7 @@ namespace ojph {
     siz.set_image_offset(ojph::point(0, 0));
     siz.set_tile_size(ojph::size(0, 0));
     siz.set_tile_offset(ojph::point(0, 0));
-                printf("REDDD\n");
+                printf("REDDD1\n");
 
     ojph::param_cod cod = codestream.access_cod();
 
@@ -205,12 +205,16 @@ namespace ojph {
     mem_outfile output;
     output.open();
     codestream.set_planar(false);
+                    printf("REDDD1\n");
+
     codestream.write_headers(&output);
+                printf("REDDD1\n");
 
 
     int next_comp;
 
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
+                printf("REDDD3\n");
 
 
     for (int y = 0; y < height; y++)

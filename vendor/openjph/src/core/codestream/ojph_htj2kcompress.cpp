@@ -183,14 +183,16 @@ namespace ojph {
     siz.set_image_offset(ojph::point(0, 0));
     siz.set_tile_size(ojph::size(0, 0));
     siz.set_tile_offset(ojph::point(0, 0));
-                printf("REDDD1\n");
 
     ojph::param_cod cod = codestream.access_cod();
-                printf("REDDD1\n");
+                    printf("REDDD3\n");
 
     cod.set_num_decomposition(5);
+                    printf("REDDD2\n");
+
     cod.set_block_dims(64, 64);
 
+                printf("REDDD1\n");
 
     const char* progOrders[] = { "LRCP", "RLCP", "RPCL", "PCRL", "CPRL" };
     cod.set_progression_order(progOrders[2]);

@@ -203,14 +203,15 @@ namespace ojph {
 
     output.open();
     codestream.set_planar(false);
-                    printf("REDDD2\n");
 
     codestream.write_headers(&output);
 
 
     int next_comp;
+                        printf("REDDD6\n");
 
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
+                        printf("REDDD6\n");
 
 
     for (int y = 0; y < height; y++)

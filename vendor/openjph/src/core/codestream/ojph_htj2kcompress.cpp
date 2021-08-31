@@ -202,16 +202,18 @@ namespace ojph {
     mem_outfile output;
 
     output.open();
+                            printf("REDDD6\n");
+
     codestream.set_planar(false);
+                        printf("REDDD6\n");
 
     codestream.write_headers(&output);
+                        printf("REDDD6\n");
 
 
     int next_comp;
-                        printf("REDDD6\n");
 
     ojph::line_buf* cur_line = codestream.exchange(NULL, next_comp);
-                        printf("REDDD6\n");
 
 
     for (int y = 0; y < height; y++)

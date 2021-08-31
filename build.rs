@@ -28,7 +28,7 @@ fn main() {
 
     } else {
         cc.shared_flag(true);
-
+        cc.static_flag(true);
         cc.cpp_link_stdlib("stdc++");
 
     }

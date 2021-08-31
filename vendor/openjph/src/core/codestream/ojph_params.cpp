@@ -755,6 +755,8 @@ namespace ojph {
     void param_qcd::set_rev_quant(int bit_depth,
                                   bool is_employing_color_transform)
     {
+                       printf("set_rev_quant\n");
+
       int guard_bits = 1;
       Sqcd = (ui8)(guard_bits << 5); //one guard bit, and no quantization
       int B = bit_depth;

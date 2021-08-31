@@ -170,15 +170,27 @@ namespace ojph {
             printf("REDDD\n");
 
     ojph::codestream codestream;
+                printf("REDDD\n");
+
     ojph::param_siz siz = codestream.access_siz();
+                printf("REDDD\n");
+
     siz.set_image_extent(ojph::point(width, height));
+                printf("REDDD\n");
+
     int num_comps = 3;
     siz.set_num_components(num_comps);
+                printf("REDDD\n");
+
     for (int c = 0; c < num_comps; ++c)
       siz.set_component(c, ojph::point(1, 1), 8, false);
+               printf("REDDD\n");
+
     siz.set_image_offset(ojph::point(0, 0));
     siz.set_tile_size(ojph::size(0, 0));
     siz.set_tile_offset(ojph::point(0, 0));
+                printf("REDDD\n");
+
     ojph::param_cod cod = codestream.access_cod();
 
     cod.set_num_decomposition(5);

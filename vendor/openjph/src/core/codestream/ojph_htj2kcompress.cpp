@@ -66,9 +66,10 @@ namespace ojph {
       {
 
         assert(c == next_comp);
-
+        printf("ererere\n");
 
         read(cur_line, data, width, y, next_comp);
+        printf("ererer1e\n");
 
         cur_line = codestream.exchange(cur_line, next_comp);
 

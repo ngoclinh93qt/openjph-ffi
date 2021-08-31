@@ -197,10 +197,10 @@ namespace ojph {
     cod.set_color_transform(true);
 
     cod.set_reversible(false);
+                        printf("REDDD6\n");
 
     codestream.access_qcd().set_irrev_quant(0.5);
     mem_outfile output;
-                        printf("REDDD6\n");
 
     output.open();
     codestream.set_planar(false);

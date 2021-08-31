@@ -128,7 +128,7 @@ namespace ojph {
 
       if (level >= 3)
       {
-        printf("DAO\n")
+        printf("DAO\n");
         cnvrt_float_to_si32_shftd = sse2_cnvrt_float_to_si32_shftd;
         cnvrt_float_to_si32 = sse2_cnvrt_float_to_si32;
         cnvrt_si32_to_si32_shftd = sse2_cnvrt_si32_to_si32_shftd;

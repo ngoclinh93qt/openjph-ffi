@@ -1164,7 +1164,6 @@ namespace ojph {
     //////////////////////////////////////////////////////////////////////////
     line_buf* codestream::exchange(line_buf *line, int &next_component)
     {
-      printf("MMM\n");
       if (line)
       {
         bool success = false;
@@ -1443,7 +1442,6 @@ namespace ojph {
     //////////////////////////////////////////////////////////////////////////
     bool tile::push(line_buf *line, int comp_num)
     {
-      printf("ggg \n");
       assert(comp_num < num_comps);
       if (cur_line[comp_num] >= comp_rects[comp_num].siz.h)
         return false;

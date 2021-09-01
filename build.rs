@@ -2,6 +2,8 @@ use std::env;
 use std::path::Path;
 fn main() {
     println!("cargo:rustc-link-lib=openjph");
+    println!(r"cargo:rustc-link-search=lib\");
+
  }
  /*
 fn main() {

@@ -54,7 +54,7 @@ namespace ojph {
     void sse2_cnvrt_float_to_si32_shftd(const float *sp, si32 *dp, float mul,
                                        int width)
     {
-
+      printf("fdfdfdfdf\n");
       uint32_t rounding_mode = _MM_GET_ROUNDING_MODE();
       _MM_SET_ROUNDING_MODE(_MM_ROUND_NEAREST);
       __m128 shift = _mm_set1_ps(0.5f);

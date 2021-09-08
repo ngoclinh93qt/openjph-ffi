@@ -12,7 +12,7 @@ use std::fs::*;
 fn poke() {
       unsafe {
 
-            let img = image::open("./tests/labe.ppm").unwrap();
+            let img = image::open("./tests/parking.jpg").unwrap();
             let width = img.width();
             let dimentsion = img.dimensions();
 
@@ -25,10 +25,14 @@ fn poke() {
 
             let mut d = ojph_htj2kcompress{_address:1};
 
-            let _out = d.encodedao(data.as_mut_ptr(), dimentsion.0 as i32, dimentsion.1 as i32 );
+            let _out = d.encodefullquality(data.as_mut_ptr(), dimentsion.0 as i32, dimentsion.1 as i32 );
 
             let elapase = now.elapsed();
-            println!("{}",elapase.as_millis());
+            println!("{}",elapase.as_millis());  
+                  let len = _out.len;
+                 let v =  unsafe { Vec::from_raw_parts(_out.data as *mut u8, len, len) };
+      
+                 std::fs::write("./tests/dao.j2c",v).expect("no file found");
 
 
       //       let mut decoder = ojph_htj2kdecompress{_address:3};

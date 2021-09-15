@@ -44,20 +44,11 @@ namespace ojph {
     cod.set_num_decomposition(5);
     cod.set_block_dims(64, 64);
 
-    // std::vector<ojph::size> precincts;
-    // precincts.resize(precincts_.size());
-    // for(size_t i=0; i < precincts_.size(); i++) {
-    //   precincts[i].w = precincts_[i].width;
-    //   precincts[i].h = precincts_[i].height;
-    // }
-    // cod.set_precinct_size(precincts_.size(), precincts.data());
-
-
     const char* progOrders[] = { "LRCP", "RLCP", "RPCL", "PCRL", "CPRL" };
     cod.set_progression_order(progOrders[2]);
     cod.set_color_transform(true);
     cod.set_reversible(false);
-    codestream.access_qcd().set_irrev_quant(0.5);
+    codestream.access_qcd().set_irrev_quant(0.1);
     mem_outfile output;
     output.open();
     codestream.set_planar(false);
